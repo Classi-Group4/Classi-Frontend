@@ -27,3 +27,5 @@
 
 ### Database Schema Diagram
 ![Wireframe](/Project%20Files/Database.png)
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

@@ -25,6 +25,6 @@
 ### Domain Modelling
 ![Wireframe](/Project%20Files/Domain%20Modeling.jpg)
 
-### Database Schema Diagram
+### Database Schema Diagram:
 ![Wireframe](/Project%20Files/Database.png)
 

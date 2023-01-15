@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <header className="fixed top-0 ">
+    <header className="">
       <div>
         <section className="relative mx-auto">
           <nav className="flex justify-between bg-gray-900 text-white w-screen">
@@ -14,13 +14,13 @@ export default function Header() {
               </a>
               <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
                 <li>
-                  <a className="hover:text-gray-200" href="#">
+                  <a className="hover:text-gray-200" href="/">
                     Home
                   </a>
                 </li>
                 <li>
-                  <a className="hover:text-gray-200" href="#">
-                    Catagory
+                  <a className="hover:text-gray-200" href="/categories">
+                    Categories
                   </a>
                 </li>
                 <li>

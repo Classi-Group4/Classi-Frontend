@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <header className="fixed top-0 ">
+    <header className="">
       <div>
         <section className="relative mx-auto">
           <nav className="flex justify-between bg-gray-900 text-white w-screen">

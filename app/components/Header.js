@@ -4,6 +4,7 @@ import Image from "next/image";
 export default function Header() {
   return (
 
+
     <header >
 
       <div>
@@ -20,8 +21,8 @@ export default function Header() {
                   </a>
                 </li>
                 <li>
-                  <a className="hover:text-gray-200" href="#">
-                    Catagory
+                  <a className="hover:text-gray-200" href="/categories">
+                    Categories
                   </a>
                 </li>
                 <li>

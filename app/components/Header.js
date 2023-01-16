@@ -1,10 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-
 export default function Header() {
   return (
-    <header className="">
+
+
+    <header >
+
       <div>
         <section className="relative mx-auto">
           <nav className="flex justify-between bg-gray-900 text-white w-screen">
@@ -14,13 +16,13 @@ export default function Header() {
               </a>
               <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
                 <li>
-                  <a className="hover:text-gray-200" href="#">
+                  <a className="hover:text-gray-200" href="/">
                     Home
                   </a>
                 </li>
                 <li>
-                  <a className="hover:text-gray-200" href="#">
-                    Catagory
+                  <a className="hover:text-gray-200" href="/categories">
+                    Categories
                   </a>
                 </li>
                 <li>
@@ -71,7 +73,7 @@ export default function Header() {
                     <span className="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>
                   </span>
                 </a>
-                <a className="flex items-center hover:text-gray-200" href="#">
+                <a className="flex items-center hover:text-gray-200" href="/profile">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6 hover:text-gray-200"

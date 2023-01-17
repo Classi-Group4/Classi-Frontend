@@ -9,7 +9,7 @@ export default function Class() {
 
                 <div class="relative block md:flex items-center">
                     <div class="w-full md:w-1/2 relative z-1 bg-gray-100 rounded shadow-lg overflow-hidden">
-                        <div class="text-xl font-medium text-green-500 uppercase p-8 text-center border-b border-[#cfdddd] tracking-wide">Class Name</div>
+                        <div class="text-xl font-medium text-[#576F72] uppercase p-8 text-center border-b border-[#cfdddd] tracking-wide">Class Name</div>
                         <div class="block sm:flex md:block lg:flex items-center justify-center">
                             <div class="mt-8 sm:m-8 md:m-0 md:mt-8 lg:m-8 text-center">
                                 <div class="inline-flex items-center">
@@ -24,18 +24,18 @@ export default function Class() {
                             <ul>
                                 
                                 <li class="flex items-center">
-                                    <div class="bg-green-200 rounded-full p-2 fill-current text-green-700">
+                                    <div class="bg-[#c7e0e0] rounded-full p-2 fill-current text-[#7D9D9C]">
 
                                     </div>
                                     <span class="text-gray-700 text-lg ml-3">Category: Name</span>
                                 </li>
                                 <li class="flex items-center mt-3">
-                                    <div class="bg-green-200 rounded-full p-2 fill-current text-green-700">
+                                    <div class="bg-[#c7e0e0] rounded-full p-2 fill-current text-[#7D9D9C]">
                                     </div>
                                     <span class="text-gray-700 text-lg ml-3">Available time: 00:00 - 00:00</span>
                                 </li>
                                 <li class="flex items-center mt-3">
-                                    <div class="bg-green-200 rounded-full p-2 fill-current text-green-700">
+                                    <div class="bg-[#c7e0e0] rounded-full p-2 fill-current text-[#7D9D9C]">
                                     </div>
                                     <span class="text-gray-700 text-lg ml-3">Price: $00.0/hr</span>
                                 </li>

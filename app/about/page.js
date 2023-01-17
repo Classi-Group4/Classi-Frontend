@@ -3,12 +3,12 @@ import React from "react";
 export default function About() {
     return (
         <>
-            <h1 className="text-5xl font-bold mt-20 flex justify-center text-[#111827]">About Us</h1>
-            <div className=" place-items-center  flex space-x-2 flex flex-wrap	 grid-cols-3 gap-4 px-6">
-                <section id="about-us" class="py-16">
-                    <div class="container mx-auto py-8 px-8 flex gap-20 ">
-                        <div class="w-2/3 flex flex-col justify-center text-center">
-                            <h2 class="text-3xl font-bold mb-7">
+            <h1 className="text-5xl font-bold mt-20 flex justify-center text-[#111827] ">About Us</h1>
+            <div className=" place-items-center justify-center flex space-x-2 flex flex-wrap grid-cols-3 gap-4 px-6">
+                <section id="about-us" className="py-16">
+                    <div className="container mx-auto py-8 px-8 flex gap-20 ">
+                        <div className="w-2/3 flex flex-col justify-center text-center">
+                            <h2 className="text-3xl font-bold mb-7">
                                 Welcome to our class reservation program!
                             </h2>
                             <p className="text-l">
@@ -19,9 +19,9 @@ export default function About() {
                                 Thank you for choosing our class reservation program. We hope you have a great experience using it and we look forward to hearing from you!
                             </p>
                         </div>
-                        <div class="w-1/3 relative">
-                            <img class="w-full relative z-10  " src="https://blog.reverbnation.com/wp-content/uploads/2019/06/why-musician-music-teacher.jpg" />
-                            <div class="bg-[#7D9D9C] h-full w-full absolute top-6 -left-6"></div>
+                        <div className="w-1/3 relative">
+                            <img className="w-full relative z-10  " src="https://blog.reverbnation.com/wp-content/uploads/2019/06/why-musician-music-teacher.jpg" />
+                            <div className="bg-[#7D9D9C] h-full w-full absolute top-6 -left-6"></div>
                         </div>
                     </div>
                     <section className="py-6 dark:bg-gray-800 dark:text-gray-100">

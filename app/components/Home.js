@@ -5,19 +5,19 @@ import Image from "next/image";
 export default function HomePage() {
   return (
     <div>
-      <section class="relative bg-[url(https://umanitoba.ca/extended-education/sites/extended-education/files/styles/21x9_1100w/public/2021-05/Courses-header_1.jpg?itok=DPBp7WmX)] bg-cover bg-center bg-no-repeat">
-        <div class="absolute inset-0 bg-white/75 sm:bg-transparent sm:bg-gradient-to-r sm:from-white/95 sm:to-white/25"></div>
+      <section className="relative bg-[url(https://umanitoba.ca/extended-education/sites/extended-education/files/styles/21x9_1100w/public/2021-05/Courses-header_1.jpg?itok=DPBp7WmX)] bg-cover bg-center bg-no-repeat">
+        <div className="absolute inset-0 bg-white/75 sm:bg-transparent sm:bg-gradient-to-r sm:from-white/95 sm:to-white/25"></div>
 
-        <div class="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
-          <div class="max-w-xl text-center sm:text-left">
-            <h1 class="text-3xl font-extrabold sm:text-5xl">
+        <div className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
+          <div className="max-w-xl text-center sm:text-left">
+            <h1 className="text-3xl font-extrabold sm:text-5xl">
               Let us find you
-              <strong class="block font-extrabold text-black-700">
+              <strong className="block font-extrabold text-black-700">
                 The best Courses
               </strong>
             </h1>
 
-            <p class="mt-4 max-w-lg sm:text-xl sm:leading-relaxed">
+            <p className="mt-4 max-w-lg sm:text-xl sm:leading-relaxed">
               In Classi you will be able to search for many courses in many
               categories so you can find whatever course that fits your needs to
               develop and improve your skills and knowledge at a specific
@@ -35,17 +35,17 @@ export default function HomePage() {
               To Become A Member
             </span>
 
-            <div class="mt-8 flex flex-wrap gap-4 text-center ">
+            <div className="mt-8 flex flex-wrap gap-4 text-center ">
               <a
                 href="#"
-                class="block w-full rounded bg-gray-800 px-12 py-3 text-sm font-medium text-white shadow hover:bg-gray-800 focus:outline-none focus:ring active:bg-gray-500 sm:w-auto"
+                className="block w-full rounded bg-gray-800 px-12 py-3 text-sm font-medium text-white shadow hover:bg-gray-800 focus:outline-none focus:ring active:bg-gray-500 sm:w-auto"
               >
                 Sign Up
               </a>
               <br></br>
               <a
                 href="#"
-                class=" block w-full rounded bg-white px-12 py-3 text-sm font-medium text-gray-800 shadow hover:text-gray-600 focus:outline-none focus:ring active:text-gray-500 sm:w-auto"
+                className=" block w-full rounded bg-white px-12 py-3 text-sm font-medium text-gray-800 shadow hover:text-gray-600 focus:outline-none focus:ring active:text-gray-500 sm:w-auto"
               >
                 Log in
               </a>

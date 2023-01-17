@@ -44,7 +44,7 @@ export default function HomePage() {
               </a>
               <br></br>
               <a
-                href="#"
+                href="/loginform"
                 className=" block w-full rounded bg-white px-12 py-3 text-sm font-medium text-gray-800 shadow hover:text-gray-600 focus:outline-none focus:ring active:text-gray-500 sm:w-auto"
               >
                 Log in

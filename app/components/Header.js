@@ -31,8 +31,8 @@ export default function Header() {
                   </a>
                 </li>
                 <li>
-                  <a className="hover:text-gray-200" href="#">
-                    Contact Us
+                  <a className="hover:text-gray-200" href="/profile">
+                    Profile
                   </a>
                 </li>
               </ul>

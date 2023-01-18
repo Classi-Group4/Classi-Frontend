@@ -11,7 +11,24 @@ import {useState} from "react";
         duration: "",
         teacherName: "",
       });
+
+      const handleSubmit = (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const data = Object.fromEntries(formData);
+        const dataJson = JSON.stringify(data);
+        console.log(dataJson);
+      }
     
+      const submitHandler = (e) => {
+    e.preventDefault();
+    setUserInput({...userInput, category: e.target.category.value,
+    className: e.target.className.value,
+    price: e.target.price.value,
+    location: e.target.location.value,
+    duration: e.target.duration.value,
+    teacherName: e.target.teacherName.value});
+  };
 
 return(
   
@@ -19,7 +36,7 @@ return(
     <div className="flex justify-center bg-[url(https://images.unsplash.com/photo-1587612049655-c1030366a74a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)] bg-cover bg-center bg-no-repeat "> 
     
 
-    <form className="bg-glass bg-white bg-opacity-70  drop-shadow-lg  rounded-md shadow-md p-10 w-1/3">    
+    <form className="bg-glass bg-white bg-opacity-70  drop-shadow-lg  rounded-md shadow-md p-10 w-1/3" onSubmit={handleSubmit}>    
      
    
     <label className="block font-medium text-sm mb-2">

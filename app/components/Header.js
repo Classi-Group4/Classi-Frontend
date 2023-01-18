@@ -1,7 +1,32 @@
+'use client';
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+
+import { useEffect } from "react";
+import { useState } from "react";
+// import { redirect } from "next/dist/server/api-utils";
+
+
+
 export default function Header() {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const loggedIn = localStorage.getItem("isLoggedIn");
+    if (loggedIn) {
+      setIsLoggedIn(loggedIn);
+      
+    } else {
+      setIsLoggedIn(loggedIn);
+    }
+  }, []);
+  const handleLogout = (e) => {
+    window.location.reload(false);
+    localStorage.removeItem("isLoggedIn");
+  };
   return (
 
 
@@ -125,7 +150,13 @@ export default function Header() {
                 />
               </svg>
             </a>
+            
           </nav>
+          <a> 
+              <button onClick={handleLogout}>
+                Logout
+              </button>
+            </a>
         </section>
       </div>
     </header>

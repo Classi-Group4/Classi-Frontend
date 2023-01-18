@@ -1,8 +1,20 @@
+'use client';
+import { useState } from "react";
+import { useEffect } from "react";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function HomePage() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    const loggedIn = localStorage.getItem("isLoggedIn");
+    if (loggedIn) {
+      setIsLoggedIn(loggedIn);
+    } else {
+      setIsLoggedIn(loggedIn);
+    }
+  }, []);
   return (
     <div>
       <section className="relative  h-screen w-screen bg-[url(https://umanitoba.ca/extended-education/sites/extended-education/files/styles/21x9_1100w/public/2021-05/Courses-header_1.jpg?itok=DPBp7WmX)] bg-cover bg-center bg-no-repeat">
@@ -30,12 +42,12 @@ export default function HomePage() {
             <br></br>
             <br></br>
             <br></br>
-            <span className="ml-2 w-full rounded  px-20 py-3 text-sm font-medium text-black shadow sm:w-auto">
+            {!isLoggedIn && <span className="ml-2 w-full rounded  px-20 py-3 text-sm font-medium text-black shadow sm:w-auto">
               {" "}
               To Become A Member
-            </span>
+            </span>}
 
-            <div className="mt-8 flex flex-wrap gap-4 text-center ">
+            {!isLoggedIn && <div className="mt-8 flex flex-wrap gap-4 text-center ">
               <a
                 href="/signup"
                 className="block w-full rounded bg-gray-800 px-12 py-3 text-sm font-medium text-white shadow hover:bg-gray-800 focus:outline-none focus:ring active:bg-gray-500 sm:w-auto"
@@ -49,7 +61,7 @@ export default function HomePage() {
               >
                 Log in
               </a>
-            </div>
+            </div>}
             <br>
             </br>
             <div>

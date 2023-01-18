@@ -5,6 +5,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 
+
+
 export default function LoginForm() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [formData, setFormData] = useState({
@@ -12,37 +14,49 @@ export default function LoginForm() {
     password: "",
   });
 
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
-  useEffect(() => {
-    const loggedIn = localStorage.getItem("isLoggedIn")
-    if (loggedIn) {
-        setIsLoggedIn(loggedIn)
-    }
-  }, [])
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
     try {
       const res = await axios.post(
         "http://127.0.0.1:8000/teacher/login/",
         formData
       );
 
-      console.log(res.data);
+      console.log(res.data.status);
+      if (res.data.status == "success") {
+        setIsLoggedIn(true);
+             
+
+        localStorage.setItem("isLoggedIn", true);
+      }
     } catch (err) {
       console.error(err);
     }
-
-    setIsLoggedIn(true);
-    localStorage.setItem("isLoggedIn", true)
   };
+  const handleLogout = (e) => {
+    e.preventDefault();
+    setIsLoggedIn(false);
+    localStorage.removeItem("isLoggedIn");
+  };
+
+  
+  useEffect(() => {
+    const loggedIn = localStorage.getItem("isLoggedIn");
+    if (loggedIn) {
+      setIsLoggedIn(loggedIn);
+
+    } else {
+      setIsLoggedIn(loggedIn);
+    }
+  }, []);
   return (
     <div class=" h-screen w-screen ">
       <div class="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0 ">
@@ -55,7 +69,7 @@ export default function LoginForm() {
             <div class="flex flex-col flex-1 justify-center mb-8">
               <h1 class="text-4xl text-center font-thin">Welcome Back</h1>
               <div class="w-full mt-4">
-                <form
+                {!isLoggedIn && <form
                   onSubmit={handleSubmit}
                   class="form-horizontal w-3/4 mx-auto bg-opacity-70  drop-shadow-lg  rounded-md shadow-md"
                   method="POST"
@@ -99,8 +113,16 @@ export default function LoginForm() {
                     >
                       Login
                     </button>
+                    <button
+                      onClick={handleLogout}
+                      class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded"
+                    >
+                      Logout
+                    </button>
+                    
                   </div>
-                </form>
+                </form>}
+                {isLoggedIn && <a href="/">Go to home</a>}
                 <div class="text-center mt-4">
                   <a
                     class="no-underline hover:underline text-blue-dark text-xs"
@@ -120,6 +142,7 @@ export default function LoginForm() {
             style={{ backgroundSize: "cover", backgroundPosition: "center" }}
           ></div>
         </div>
+        {isLoggedIn && <div>Still Logged in</div>}
       </div>
     </div>
   );

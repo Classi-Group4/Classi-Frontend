@@ -22,9 +22,15 @@ export default function LoginForm() {
       [e.target.name]: e.target.value,
     });
   };
+  
+  
+  
   const handleCheck = () => {
     setChecked(!checked);
   };
+  
+  
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
      
@@ -41,7 +47,9 @@ export default function LoginForm() {
   
           localStorage.setItem("isLoggedIn", true);
         }
+      
       }else {
+
         const res = await axios.post(
           "http://127.0.0.1:8000/student/login/",
           formData
@@ -60,6 +68,11 @@ export default function LoginForm() {
       console.error(err);
     }
   };
+  
+  
+  
+  
+  
   const handleLogout = (e) => {
     e.preventDefault();
     setIsLoggedIn(false);
@@ -76,14 +89,21 @@ export default function LoginForm() {
       setIsLoggedIn(loggedIn);
     }
   }, []);
+  
+  
+  
+  
   return (
+    
     <div class=" h-screen w-screen ">
       <div class="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0 ">
         <div
+          
           class="flex rounded-lg shadow-lg w-full sm:w-3/4 lg:w-1/2 
 		bg-white sm:mx-0 bg-opacity-70  drop-shadow-lg  rounded-md shadow-md"
           style={{ height: "500px" }}
         >
+
           <div class="flex flex-col w-full md:w-1/2 p-4 ">
             <div class="flex flex-col flex-1 justify-center mb-8">
               <h1 class="text-4xl text-center font-thin">Welcome Back</h1>
@@ -113,7 +133,9 @@ export default function LoginForm() {
                       onChange={handleChange}
                       required
                     />
+                  
                   </div>
+                  
                   <div class="flex items-center mt-4">
                     <input
                       type="checkbox"
@@ -121,10 +143,12 @@ export default function LoginForm() {
                       id="remember"
                       class="mr-2"
                     />{" "}
+                    
                     <label for="remember" class="text-sm text-grey-dark">
                       Remember Me
                     </label>
                   </div>
+                  
                   <div class="flex flex-col mt-8">
                     <button
                       type="submit"
@@ -161,6 +185,7 @@ export default function LoginForm() {
                     href="{{ route('password.request') }}"
                   >
                     Forgot Your Password?
+                  
                   </a>
                 </div>
               </div>

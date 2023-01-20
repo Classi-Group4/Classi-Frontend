@@ -124,7 +124,7 @@ export default function signup() {
                       id="remember"
                       checked={checked}
                       onChange={handleCheck}
-                      class="mr-2"
+                      className="mr-2"
                   />Sign Up as a Teacher 
                 </div>
                 <div className="mt-8 flex justify-center text-lg text-black">

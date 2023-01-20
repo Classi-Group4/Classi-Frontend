@@ -26,6 +26,8 @@ export default function Header() {
   const handleLogout = (e) => {
     window.location.reload(false);
     localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("email");
+    localStorage.removeItem("role");
   };
   return (
 

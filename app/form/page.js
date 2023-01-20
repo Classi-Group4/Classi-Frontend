@@ -35,10 +35,10 @@ import {useState} from "react";
 return(
   
     
-    <div className="flex justify-center bg-[url(https://images.unsplash.com/photo-1587612049655-c1030366a74a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)] bg-cover bg-center bg-no-repeat "> 
+    <div className="flex justify-center flex  bg-[url(https://images.unsplash.com/photo-1587612049655-c1030366a74a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)] bg-cover bg-center bg-no-repeat "> 
     
-
-    <form className="bg-glass bg-white bg-opacity-70  drop-shadow-lg  rounded-md shadow-md p-10 w-1/3" onSubmit={handleSubmit}>    
+    <form className="bg-glass  bg-white bg-opacity-70 mt-20 mb-20  drop-shadow-lg  rounded-md shadow-md p-10 w-1/3"
+     onSubmit={handleSubmit}>    
      
    
     <label className="block font-medium text-sm mb-2">
@@ -112,9 +112,7 @@ return(
     
   </form>
   
-  </div> 
-  
-
+  </div>
   
     );
  }

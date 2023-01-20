@@ -51,11 +51,11 @@ export default function signup() {
     <>
       <div className="p-20 h-screen w-screen flex flex-col-reverse md:flex-row items-center justify-center bg-cover bg-center bg-no-repeat bg-[url(https://media.istockphoto.com/id/1290864946/photo/e-learning-education-concept-learning-online.jpg?s=170667a&w=is&k=20&c=4O9YYitL-Y2d3YiGGO4YSOBvO4EMrP4KuLxiJjnZjU0=)]">
         <div className="content text-5xl text-center md:text-left">
-          <h1 className="text-4xl text-blue-500 font-bold">Create New Account</h1>
+          <h1 className="text-4xl text-blue-400   font-bold">Create New Account</h1>
           <p className="text-white ">Welcome to our Site ,Let's learn Together</p>
         </div>
         <div className="container mx-auto flex flex-col items-center">
-          <div className="rounded-xl bg-gray-300  bg-opacity-50 px-16 py-10 shadow-lg backdrop-blur-md max-sm:px-8">
+          <div className="rounded-xl bg-[#576F72]  bg-opacity-50 px-16 py-10 shadow-lg backdrop-blur-md max-sm:px-8">
             <div className="text-black">
               <div className="mb-8 flex flex-col items-center">
                 <img
@@ -69,7 +69,7 @@ export default function signup() {
                 <p></p>
                 <div className="mb-4 text-lg">
                   <input
-                    className="rounded-3xl border-none  bg-blue-100  bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
+                    className="rounded-3xl border-none  bg-gray-500  bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
                     type="text"
                     name="name"
                     placeholder="Name"
@@ -80,7 +80,7 @@ export default function signup() {
                 </div>
                 <div className="mb-4 text-lg">
                   <input
-                    className="rounded-3xl border-none  bg-blue-100  bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
+                    className="rounded-3xl border-none  bg-gray-500  bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
                     type="email"
                     name="email"
                     placeholder="Email"
@@ -92,7 +92,7 @@ export default function signup() {
 
                 <div className="mb-4 text-lg">
                   <input
-                    className="rounded-3xl border-none  bg-blue-100  bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
+                    className="rounded-3xl border-none  bg-gray-500  bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
                     type="password"
                     name="password"
                     placeholder="Password"

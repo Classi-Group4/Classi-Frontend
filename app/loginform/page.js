@@ -113,14 +113,17 @@ export default function LoginForm() {
                     >
                       Login
                     </button>
+                    </div>
+                    <div class="flex flex-col mt-4">
                     <button
                       onClick={handleLogout}
                       class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded"
                     >
                       Logout
                     </button>
+                    </div>
                     
-                  </div>
+                 
                 </form>}
                 {isLoggedIn && <a href="/">Go to home</a>}
                 <div class="text-center mt-4">

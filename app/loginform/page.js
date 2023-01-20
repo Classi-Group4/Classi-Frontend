@@ -22,15 +22,9 @@ export default function LoginForm() {
       [e.target.name]: e.target.value,
     });
   };
-  
-  
-  
   const handleCheck = () => {
     setChecked(!checked);
   };
-  
-  
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
      
@@ -43,13 +37,12 @@ export default function LoginForm() {
         ); console.log(res.data.status);
         if (res.data.status == "success") {
           setIsLoggedIn(true);
-               
+          localStorage.setItem("role", "teacher");
+          localStorage.setItem("email", formData.email);
   
           localStorage.setItem("isLoggedIn", true);
         }
-      
       }else {
-
         const res = await axios.post(
           "http://127.0.0.1:8000/student/login/",
           formData
@@ -57,7 +50,8 @@ export default function LoginForm() {
         if (res.data.status == "success") {
           setIsLoggedIn(true);
                
-  
+          localStorage.setItem("role", "student");
+          localStorage.setItem("email", formData.email);
           localStorage.setItem("isLoggedIn", true);
         }
       }
@@ -68,11 +62,6 @@ export default function LoginForm() {
       console.error(err);
     }
   };
-  
-  
-  
-  
-  
   const handleLogout = (e) => {
     e.preventDefault();
     setIsLoggedIn(false);
@@ -89,32 +78,25 @@ export default function LoginForm() {
       setIsLoggedIn(loggedIn);
     }
   }, []);
-  
-  
-  
-  
   return (
-    
-    <div class=" h-screen w-screen ">
-      <div class="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0 ">
+    <div className=" h-screen w-screen ">
+      <div className="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0 ">
         <div
-          
-          class="flex rounded-lg shadow-lg w-full sm:w-3/4 lg:w-1/2 
+          className="flex rounded-lg shadow-lg w-full sm:w-3/4 lg:w-1/2 
 		bg-white sm:mx-0 bg-opacity-70  drop-shadow-lg  rounded-md shadow-md"
           style={{ height: "500px" }}
         >
-
-          <div class="flex flex-col w-full md:w-1/2 p-4 ">
-            <div class="flex flex-col flex-1 justify-center mb-8">
-              <h1 class="text-4xl text-center font-thin">Welcome Back</h1>
-              <div class="w-full mt-4">
+          <div className="flex flex-col w-full md:w-1/2 p-4 ">
+            <div className="flex flex-col flex-1 justify-center mb-8">
+              <h1 className="text-4xl text-center font-thin">Welcome Back</h1>
+              <div className="w-full mt-4">
                 {!isLoggedIn && <form
                   onSubmit={handleSubmit}
-                  class="form-horizontal w-3/4 mx-auto bg-opacity-70  drop-shadow-lg  rounded-md shadow-md"
+                  className="form-horizontal w-3/4 mx-auto bg-opacity-70  drop-shadow-lg  rounded-md shadow-md"
                   method="POST"
                   action="#"
                 >
-                  <div class="flex flex-col mt-4">
+                  <div className="flex flex-col mt-4">
                     <input
                       type="email"
                       name="email"
@@ -124,7 +106,7 @@ export default function LoginForm() {
                       required
                     />
                   </div>
-                  <div class="flex flex-col mt-4">
+                  <div className="flex flex-col mt-4">
                     <input
                       type="password"
                       name="password"
@@ -133,32 +115,28 @@ export default function LoginForm() {
                       onChange={handleChange}
                       required
                     />
-                  
                   </div>
-                  
-                  <div class="flex items-center mt-4">
+                  <div className="flex items-center mt-4">
                     <input
                       type="checkbox"
                       name="remember"
                       id="remember"
-                      class="mr-2"
+                      className="mr-2"
                     />{" "}
-                    
-                    <label for="remember" class="text-sm text-grey-dark">
+                    <label htmlFor="remember" className="text-sm text-grey-dark">
                       Remember Me
                     </label>
                   </div>
-                  
-                  <div class="flex flex-col mt-8">
+                  <div className="flex flex-col mt-8">
                     <button
                       type="submit"
-                      class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded"
+                      className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded"
                     >
                       Login
                     </button>
                     <button
                       onClick={handleLogout}
-                      class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded"
+                      className="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded"
                     >
                       Logout
                     </button>
@@ -168,7 +146,7 @@ export default function LoginForm() {
                 {isLoggedIn && <a href="/">Go to home</a>}
                 <br></br>
                 <br></br>
-                <div>
+                {!isLoggedIn && <div>
                   <input
                       type="checkbox"
                       value="student"
@@ -176,23 +154,22 @@ export default function LoginForm() {
                       id="remember"
                       checked={checked}
                       onChange={handleCheck}
-                      class="mr-2"
+                      className="mr-2"
                   />Log in as a Teacher 
-                </div>
-                <div class="text-center mt-4">
+                </div>}
+                <div className="text-center mt-4">
                   <a
-                    class="no-underline hover:underline text-blue-dark text-xs"
+                    className="no-underline hover:underline text-blue-dark text-xs"
                     href="{{ route('password.request') }}"
                   >
                     Forgot Your Password?
-                  
                   </a>
                 </div>
               </div>
             </div>
           </div>
           <div
-            class="hidden md:block md:w-1/2 rounded-r-lg
+            className="hidden md:block md:w-1/2 rounded-r-lg
 				bg-[url(https://images.unsplash.com/photo-1515965885361-f1e0095517ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80)] 
 
 			"

@@ -12,6 +12,8 @@ export default function signup() {
   //   setIsLoggedIn(false);
   // };
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [checked, setChecked] = useState(false); 
+
   useEffect(() => {
     const loggedIn = localStorage.getItem("isLoggedIn");
     if (loggedIn) {
@@ -23,7 +25,9 @@ export default function signup() {
     email: "",
     password: "",
   });
-
+  const handleCheck = () => {
+    setChecked(!checked);
+  };
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -38,12 +42,23 @@ export default function signup() {
     e.preventDefault();
 
     try {
-      const res = await axios.post(
-        "http://127.0.0.1:8000/teacher/register/",
-        formData
-      );
-      console.log(res.data);
-    } catch (err) {
+      if (checked){
+        const res = await axios.post(
+          "http://127.0.0.1:8000/teacher/register/",
+          formData
+          
+        ); console.log(res.data.status);
+
+      }else {
+        const res = await axios.post(
+          "http://127.0.0.1:8000/student/register/",
+          formData
+        );console.log(res.data.status);
+      }
+             
+
+      }
+    catch (err) {
       console.error(err);
     }
   };
@@ -101,7 +116,17 @@ export default function signup() {
                     required
                   />
                 </div>
-
+                <div>
+                  <input
+                      type="checkbox"
+                      value="Teacher"
+                      name="remember"
+                      id="remember"
+                      checked={checked}
+                      onChange={handleCheck}
+                      class="mr-2"
+                  />Sign Up as a Teacher 
+                </div>
                 <div className="mt-8 flex justify-center text-lg text-black">
                   <button
                     type="submit"

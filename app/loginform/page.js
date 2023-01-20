@@ -9,6 +9,7 @@ import axios from "axios";
 
 export default function LoginForm() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [checked, setChecked] = useState(false); 
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -21,23 +22,41 @@ export default function LoginForm() {
       [e.target.name]: e.target.value,
     });
   };
+  const handleCheck = () => {
+    setChecked(!checked);
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+     
     try {
-      const res = await axios.post(
-        "http://127.0.0.1:8000/teacher/login/",
-        formData
-      );
-
-      console.log(res.data.status);
-      if (res.data.status == "success") {
-        setIsLoggedIn(true);
+      if (checked){
+        const res = await axios.post(
+          "http://127.0.0.1:8000/teacher/login/",
+          formData
+          
+        ); console.log(res.data.status);
+        if (res.data.status == "success") {
+          setIsLoggedIn(true);
+               
+  
+          localStorage.setItem("isLoggedIn", true);
+        }
+      }else {
+        const res = await axios.post(
+          "http://127.0.0.1:8000/student/login/",
+          formData
+        );console.log(res.data.status);
+        if (res.data.status == "success") {
+          setIsLoggedIn(true);
+               
+  
+          localStorage.setItem("isLoggedIn", true);
+        }
+      }
              
 
-        localStorage.setItem("isLoggedIn", true);
       }
-    } catch (err) {
+    catch (err) {
       console.error(err);
     }
   };
@@ -123,6 +142,19 @@ export default function LoginForm() {
                   </div>
                 </form>}
                 {isLoggedIn && <a href="/">Go to home</a>}
+                <br></br>
+                <br></br>
+                <div>
+                  <input
+                      type="checkbox"
+                      value="student"
+                      name="remember"
+                      id="remember"
+                      checked={checked}
+                      onChange={handleCheck}
+                      class="mr-2"
+                  />Log in as a Teacher 
+                </div>
                 <div class="text-center mt-4">
                   <a
                     class="no-underline hover:underline text-blue-dark text-xs"

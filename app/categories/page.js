@@ -1,6 +1,8 @@
 import React from "react";
 
+
 export default function Categories() {
+
   return (
     <>
     <h1 className="text-5xl font-bold mt-6 flex justify-center text-[#111827]">Categories</h1>

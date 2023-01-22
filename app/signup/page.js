@@ -4,6 +4,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 
 export default function signup() {
@@ -11,56 +12,35 @@ export default function signup() {
   //   localStorage.removeItem("isLoggedIn");
   //   setIsLoggedIn(false);
   // };
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [checked, setChecked] = useState(false); 
-
-  useEffect(() => {
-    const loggedIn = localStorage.getItem("isLoggedIn");
-    if (loggedIn) {
-      setIsLoggedIn(loggedIn);
-    }
-  }, []);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-  const handleCheck = () => {
-    setChecked(!checked);
-  };
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-  useEffect(() => {
-    const loggedIn = localStorage.getItem("isLoggedIn");
-  });
+  const { push } = useRouter();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isTeacher,setTeacher] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    const is_teacher = isTeacher
+    const is_student = !isTeacher
     try {
-      if (checked){
-        const res = await axios.post(
-          "http://127.0.0.1:8000/teacher/register/",
-          formData
-          
-        ); console.log(res.data.status);
-
-      }else {
-        const res = await axios.post(
-          "http://127.0.0.1:8000/student/register/",
-          formData
-        );console.log(res.data.status);
-      }
-             
+      const res = await fetch('http://127.0.0.1:8000/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, password,is_teacher,is_student }),
+      });
+      const data = await res.json();
+      console.log(data);
+      if (data){
+        push('/loginform');
 
       }
-    catch (err) {
+    } catch (err) {
       console.error(err);
     }
+
+  };
+  const handleCheck = () => {
+    setTeacher(!isTeacher);
   };
   return (
     <>
@@ -88,8 +68,7 @@ export default function signup() {
                     type="text"
                     name="name"
                     placeholder="Name"
-                    value={formData.name}
-                    onChange={handleChange}
+                    onChange={e => setName(e.target.value)}
                     required
                   />
                 </div>
@@ -99,8 +78,7 @@ export default function signup() {
                     type="email"
                     name="email"
                     placeholder="Email"
-                    value={formData.email}
-                    onChange={handleChange}
+                    onChange={e => setEmail(e.target.value)}
                     required
                   />
                 </div>
@@ -111,8 +89,7 @@ export default function signup() {
                     type="password"
                     name="password"
                     placeholder="Password"
-                    value={formData.password}
-                    onChange={handleChange}
+                    onChange={e => setPassword(e.target.value)}
                     required
                   />
                 </div>
@@ -122,9 +99,9 @@ export default function signup() {
                       value="Teacher"
                       name="remember"
                       id="remember"
-                      checked={checked}
+                      class="mr-2"
                       onChange={handleCheck}
-                      className="mr-2"
+                      checked={isTeacher}
                   />Sign Up as a Teacher 
                 </div>
                 <div className="mt-8 flex justify-center text-lg text-black">

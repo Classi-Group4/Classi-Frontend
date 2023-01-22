@@ -4,17 +4,25 @@ import { useEffect } from "react";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import cookieCutter from 'cookie-cutter';
+
 
 export default function HomePage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
+    const jwt = cookieCutter.get('jwt');
+
     const loggedIn = localStorage.getItem("isLoggedIn");
-    if (loggedIn) {
-      setIsLoggedIn(loggedIn);
+    if (jwt!=0) {
+      setIsLoggedIn(true);
     } else {
-      setIsLoggedIn(loggedIn);
+      setIsLoggedIn(false);
     }
+    
+    
   }, []);
+ 
+  
   return (
     <div>
       <section className="relative  h-screen w-screen bg-[url(https://umanitoba.ca/extended-education/sites/extended-education/files/styles/21x9_1100w/public/2021-05/Courses-header_1.jpg?itok=DPBp7WmX)] bg-cover bg-center bg-no-repeat">

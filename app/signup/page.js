@@ -16,17 +16,17 @@ export default function signup() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isTeacher,setTeacher] = useState(false);
+  // const [isTeacher,setTeacher] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const is_teacher = isTeacher
-    const is_student = !isTeacher
+    // const is_teacher = isTeacher
+    // const is_student = !isTeacher
     try {
       const res = await fetch('http://127.0.0.1:8000/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password,is_teacher,is_student }),
+        body: JSON.stringify({ name, email, password}),
       });
       const data = await res.json();
       console.log(data);
@@ -34,14 +34,15 @@ export default function signup() {
         push('/loginform');
 
       }
+      console.log(body)
     } catch (err) {
       console.error(err);
     }
 
   };
-  const handleCheck = () => {
-    setTeacher(!isTeacher);
-  };
+  // const handleCheck = () => {
+  //   setTeacher(!isTeacher);
+  // };
   return (
     <>
       <div className="p-20 h-screen w-screen flex flex-col-reverse md:flex-row items-center justify-center bg-cover bg-center bg-no-repeat bg-[url(https://media.istockphoto.com/id/1290864946/photo/e-learning-education-concept-learning-online.jpg?s=170667a&w=is&k=20&c=4O9YYitL-Y2d3YiGGO4YSOBvO4EMrP4KuLxiJjnZjU0=)]">
@@ -93,7 +94,7 @@ export default function signup() {
                     required
                   />
                 </div>
-                <div>
+                {/* <div>
                   <input
                       type="checkbox"
                       value="Teacher"
@@ -103,7 +104,7 @@ export default function signup() {
                       onChange={handleCheck}
                       checked={isTeacher}
                   />Sign Up as a Teacher 
-                </div>
+                </div> */}
                 <div className="mt-8 flex justify-center text-lg text-black">
                   <button
                     type="submit"

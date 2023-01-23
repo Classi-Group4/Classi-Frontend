@@ -1,8 +1,41 @@
+'use client';
+
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+
+
+
 
 export default function Categories() {
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [classes , setClasses] = useState(null);
+  const category2 = 'Category'
+  const { push } = useRouter();
+
+
+  const handleCategorySelection = (category) => {
+    setSelectedCategory(category);
+    push('/categories/classes')
+
+    
+    
+    
+
+  }
+  localStorage.setItem(category2 , (selectedCategory))
   return (
     <>
+    {/* <div>
+      <h2>Classes for {selectedCategory}</h2>
+      <ul>
+        {classes.map(item => (
+          <li key={item.id}>{item.classname}</li>
+        ))}
+      </ul>
+    </div> */}
     <h1 className="text-5xl font-bold mt-6 flex justify-center text-[#111827]">Categories</h1>
     <div className="mt-6 flex flex-wrap	grid grid-cols-3 gap-4">
         
@@ -18,7 +51,7 @@ export default function Categories() {
             Personal Training
           </div>
           <div className="flex items-center justify-center py-2 px-3 bg-gray-400">
-            <button className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
+            <button onClick={()=> handleCategorySelection("Personal Training")}  className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
               See Classes
             </button>
           </div>
@@ -36,7 +69,7 @@ export default function Categories() {
             Music
           </div>
           <div className="flex items-center justify-center py-2 px-3 bg-gray-400">
-            <button className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
+            <button onClick={()=> handleCategorySelection("Music")} className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
               See Classes
             </button>
           </div>
@@ -55,7 +88,7 @@ export default function Categories() {
             Sports
           </div>
           <div className="flex items-center justify-center py-2 px-3 bg-gray-400">
-            <button className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
+            <button onClick={()=> handleCategorySelection("Sports")} className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
               See Classes
             </button>
           </div>
@@ -74,7 +107,7 @@ export default function Categories() {
             Software Development
           </div>
           <div className="flex items-center justify-center py-2 px-3 bg-gray-400">
-            <button className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
+            <button onClick={()=> handleCategorySelection("Software Development")} className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
               See Classes
             </button>
           </div>
@@ -92,7 +125,7 @@ export default function Categories() {
             Languages
           </div>
           <div className="flex items-center justify-center py-2 px-3 bg-gray-400">
-            <button className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
+            <button onClick={()=> handleCategorySelection("Languages")} className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
               See Classes
             </button>
           </div>
@@ -110,7 +143,7 @@ export default function Categories() {
             Cooking
           </div>
           <div className="flex items-center justify-center py-2 px-3 bg-gray-400">
-            <button className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
+            <button onClick={()=> handleCategorySelection("Cooking")} className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
               See Classes
             </button>
           </div>
@@ -128,7 +161,7 @@ export default function Categories() {
             Arts
           </div>
           <div className="flex items-center justify-center py-2 px-3 bg-gray-400">
-            <button className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
+            <button onClick={()=> handleCategorySelection("Arts")} className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
               See Classes
             </button>
           </div>
@@ -146,7 +179,7 @@ export default function Categories() {
             Engineering
           </div>
           <div className="flex items-center justify-center py-2 px-3 bg-gray-400">
-            <button className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
+            <button onClick={()=> handleCategorySelection("Engineering")} className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
               See Classes
             </button>
           </div>
@@ -164,7 +197,7 @@ export default function Categories() {
           Social Studies
           </div>
           <div className="flex items-center justify-center py-2 px-3 bg-gray-400">
-            <button className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
+            <button onClick={()=> handleCategorySelection("Social Studies")} className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
               See Classes
             </button>
           </div>

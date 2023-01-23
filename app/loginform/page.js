@@ -81,8 +81,7 @@ export default function LoginForm() {
   return (
     <div className=" h-screen w-screen ">
       <div className="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0 ">
-        <div
-          className="flex rounded-lg shadow-lg w-full sm:w-3/4 lg:w-1/2 
+        <div className="flex rounded-lg shadow-lg w-full sm:w-3/4 lg:w-1/2 
 		bg-white sm:mx-0 bg-opacity-70  drop-shadow-lg  rounded-md shadow-md"
           style={{ height: "500px" }}
         >

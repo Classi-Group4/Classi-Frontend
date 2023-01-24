@@ -13,7 +13,7 @@ async function getClassData(id) {
 }
 
 function getId(pathName) {
-    return pathName.split('/')[2]; 
+    return pathName.split('/')[2];
 }
 
 export default function Class() {
@@ -25,19 +25,19 @@ export default function Class() {
     console.log(pathName)
     useEffect(() => {
         const getData = async () => {
-            try{
-            const response = await getClassData(getId(pathName));
-            setClassData(response);
-            const classCategory = (await axios.get(response.category)).data
-            setCategoryData(classCategory);
-            const classTeacher = (await axios.get(response.teacher)).data
-            setTeacherData(classTeacher);
-        }catch (error) {
-            console.log(error);
-        }
+            try {
+                const response = await getClassData(getId(pathName));
+                setClassData(response);
+                const classCategory = (await axios.get(response.category)).data
+                setCategoryData(classCategory);
+                const classTeacher = (await axios.get(response.teacher)).data
+                setTeacherData(classTeacher);
+            } catch (error) {
+                console.log(error);
+            }
         }
         getData();
-      }, []);
+    }, []);
     // console.log(await getClassData(1))
     return (
         <>
@@ -95,7 +95,7 @@ export default function Class() {
                                 <div className="flex items-center justify-center w-1/2 text-center p-4 border-r border-b border-[#7D9D9C]">Email</div>
                                 <div className="flex items-center justify-center w-1/2 text-center p-4 border-b border-[#7D9D9C]">{teacherData.email}</div>
                                 <div className="flex items-center justify-center w-1/2 text-center p-4 border-r border-[#7D9D9C]">Actively teaching</div>
-                                <div className="flex items-center justify-center w-1/2 text-center p-4">{teacherData.is_active ? 'yes': 'no'}</div>
+                                <div className="flex items-center justify-center w-1/2 text-center p-4">{teacherData.is_active ? 'yes' : 'no'}</div>
                             </div>
                             <a className="block flex items-center justify-center bg-[#7D9D9C] hover:bg-[#bbae9a] hover:text-[#576F72] p-8 text-md font-semibold text-[#E4DCCF] uppercase mt-8" href="#">
                                 <span>Teacher Profile</span>

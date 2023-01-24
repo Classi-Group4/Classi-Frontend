@@ -25,12 +25,12 @@ export default function Classes() {
 
     // function handleClassClick(cls) {
     //     console.log(cls.url)
-  
+
     //   }
-    
-    
+
+
     return (
-        
+
         <>
             <div className="flex w-full flex-col items-center justify-center rounded-lg border border-gray-200 p-8">
                 <div>
@@ -45,37 +45,37 @@ export default function Classes() {
             </div>
             <div className="mt-6 flex flex-wrap	grid grid-cols-3 gap-4">
                 {classes.map((cls) => (
-                    <Link 
-                    // href={{
-                    //     pathname: '/class/cls.id',
-                    //     query : { classID: cls.id } // the data
-                    //   }}                        
-                    href={`/classes/${cls.id}`}
+                    <Link
+                        // href={{
+                        //     pathname: '/class/cls.id',
+                        //     query : { classID: cls.id } // the data
+                        //   }}                        
+                        href={`/classes/${cls.id}`}
                     >
-                    <button
-                        className="p-8 border border-gray-200 rounded bg-white w-64 hover:bg-gray-50 hover:border-b-4 hover:border-b-blue-500 active:bg-gray-100"
-                    >
-                        <div className="flex justify-center items-center text-gray-500 ">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-24 w-24"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                                />
-                            </svg>
-                        </div>
-                        <div className="text-center mt-4">
-                            <h1 className="font-bold text-gray-700 text">{cls.class_name}</h1>
-                            <p className="text-500 text-sm mt-4">{cls.description}</p>
-                        </div>
-                    </button>
+                        <button
+                            className="p-8 border border-gray-200 rounded bg-white w-64 hover:bg-gray-50 hover:border-b-4 hover:border-b-blue-500 active:bg-gray-100"
+                        >
+                            <div className="flex justify-center items-center text-gray-500 ">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-24 w-24"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                    />
+                                </svg>
+                            </div>
+                            <div className="text-center mt-4">
+                                <h1 className="font-bold text-gray-700 text">{cls.class_name}</h1>
+                                <p className="text-500 text-sm mt-4">{cls.description}</p>
+                            </div>
+                        </button>
                     </Link>
                 ))}
             </div>

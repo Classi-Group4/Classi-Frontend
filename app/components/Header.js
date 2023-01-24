@@ -3,32 +3,44 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 import { useEffect } from "react";
 import { useState } from "react";
-// import { redirect } from "next/dist/server/api-utils";
+import cookieCutter from 'cookie-cutter';
+
+
 
 
 
 export default function Header() {
-
+  const { push } = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const loggedIn = localStorage.getItem("isLoggedIn");
-    if (loggedIn) {
-      setIsLoggedIn(loggedIn);
-      
-    } else {
-      setIsLoggedIn(loggedIn);
-    }
+    const jwt = cookieCutter.get('jwt');
+    // console.log(jwt)
+    
+    
+      if (jwt != 0) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+    
   }, []);
-  const handleLogout = (e) => {
-    window.location.reload(false);
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("email");
-    localStorage.removeItem("role");
-  };
+  const handleLogout = async () => {
+    try {
+      await axios.post("http://localhost:8000/api/logout");
+      cookieCutter.set('jwt', 0)
+      console.log("logout")
+     setIsLoggedIn(false)
+      push('/loginform');
+    } catch (err) {
+      console.error(err);
+    }
+  }
   return (
 
 
@@ -60,6 +72,13 @@ export default function Header() {
                     Profile
                   </a>
                 </li>
+                {isLoggedIn && <li>
+                <a className="hover:text-gray-200"> 
+              <button onClick={handleLogout}>
+                Logout
+              </button>
+            </a>
+            </li>}
               </ul>
               <div className="hidden xl:flex items-center space-x-5 items-center">
                 <a className="hover:text-gray-200" href="#">
@@ -154,11 +173,7 @@ export default function Header() {
             </a>
             
           </nav>
-          <a> 
-              <button onClick={handleLogout}>
-                Logout
-              </button>
-            </a>
+          
         </section>
       </div>
     </header>

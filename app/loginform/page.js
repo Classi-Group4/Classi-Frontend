@@ -14,8 +14,25 @@ export default function LoginForm() {
   
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  // const [checked,setChecked] = useState(false);
+  let is_teacher = false
+  let is_student = true
+  let role = "student"
 
   const { push } = useRouter();
+  const handleCheck = () => {
+    // setChecked(!checked);
+    is_teacher = !is_teacher
+    is_student = !is_student
+    if (is_teacher){
+      role = "teacher"
+    } else{
+      role="student"
+    }
+    // console.log(role)
+  };
+
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -24,15 +41,20 @@ export default function LoginForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
-        body: JSON.stringify({  email, password }),
+        body: JSON.stringify({  email, password,is_teacher,is_student,role }),
+        
       });
-
+      // console.log(role,is_teacher,is_student)
       const data = await res.json();
-      console.log(data.jwt);
-      cookieCutter.set('jwt', data.jwt)
+      // console.log(data.jwt);
+      // console.log(res.data.role)
+      console.log(data.jwt)
+      
       if (data.jwt){
+        cookieCutter.set('jwt', data.jwt)
         push('/');
       } else {
+        console.log("incorrect user details")
         console.log(res)
       }
       
@@ -47,9 +69,7 @@ export default function LoginForm() {
   //     [e.target.name]: e.target.value,
   //   });
   // };
-  // const handleCheck = () => {
-  //   setChecked(!checked);
-  // };
+  
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
      
@@ -154,8 +174,8 @@ export default function LoginForm() {
                       value="student"
                       name="remember"
                       id="remember"
-                      //checked={checked}
-                      //onChange={handleCheck}
+                      // checked={checked}
+                      onChange={handleCheck}
                       class="mr-2"
                   />Log in as a Teacher 
                 </div>

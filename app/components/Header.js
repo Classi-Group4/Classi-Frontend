@@ -20,12 +20,15 @@ export default function Header() {
 
   useEffect(() => {
     const jwt = cookieCutter.get('jwt');
-
-    if (jwt!=0) {
-      setIsLoggedIn(true);
-    } else {
-      setIsLoggedIn(false);
-    }
+    // console.log(jwt)
+    
+    
+      if (jwt != 0) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+    
   }, []);
   const handleLogout = async () => {
     try {

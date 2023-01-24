@@ -7,8 +7,9 @@ export default function Profile() {
   const [classes, setClasses] = useState([]);
   const [studentId, setStudentId] = useState("");
   const [teacherEmail, setTeacherE] = useState("");
+  const [filteredClasses, setFilteredClasses] = useState([]);
   const [role, setRole] = useState("");
-  
+
   useEffect(() => {
     (async () => {
       try {
@@ -32,24 +33,58 @@ export default function Profile() {
         });
       console.log(classes);
     })();
-    
   }, []);
 
   const handleClick = (e) => {
     e.preventDefault();
     if (role == "student") {
-      const filteredClasses = classes.filter((item) =>
-        item.students.split(",").includes(studentId)
+      setFilteredClasses(
+        classes.filter((item) =>
+          item.students.split(",").includes(studentId.toString())
+        )
       );
+      console.log(studentId);
+      // console.log(classes[0].students)
+      // console.log(filteredClasses);
+      // console.log(teacherEmail);
+      console.log(classes);
       console.log(filteredClasses);
     } else {
-      const filteredClasses = classes.filter(
-        (item) => item.teacher_email == teacherEmail
+      setFilteredClasses(
+        classes.filter((item) => item.teacher_email == teacherEmail)
       );
-      console.log(filteredClasses);
-      console.log(teacherEmail);
+      // console.log(filteredClasses);
+      // console.log(teacherEmail);
+      // console.log(classes);
     }
-    console.log(classes);
+  };
+  const handleDelete = (id) => {
+    if (role == "teacher") {
+      axios
+        .delete(`http://127.0.0.1:8000/api/class/delete/${id}`)
+        .then((response) => {
+          console.log(response);
+          alert("The class was deleted");
+          window.location.reload(false);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+    if (role == "student") {
+      axios
+        .delete(`http://127.0.0.1:8000/api/class/update/${id}/`, {
+          data: { studentid: studentId.toString() },
+        })
+        .then((response) => {
+          alert("The class was deleted");
+          console.log(response);
+          window.location.reload(false);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   return (
@@ -61,7 +96,7 @@ export default function Profile() {
               {userData && (
                 <div>
                   <div class="flex flex-wrap justify-center">
-                    <div class="relative max-w-md mx-auto md:max-w-2xl mt-2 min-w-0 break-words  px-80 ml-56  w-full mb-6 rounded-lg mt-7">
+                    <div class="relative max-w-md mx-auto md:max-w-2xl mt-2 min-w-0 break-words  px-80 ml-auto  w-full mb-6 rounded-lg mt-7">
                       <div class="py-5">
                         <img
                           alt="..."
@@ -103,7 +138,33 @@ export default function Profile() {
                   <div class="w-full lg:w-9/12 px-4">
                     {/* ///////////////////////////card/////////////////////////////// */}
                     <div class=" flex  flex-col  md:flex-row justify-center  flex-wrap gap-20 mt-10  ">
-                      <div class="">
+                      {filteredClasses.map((cls, ss) => (
+                        <div class="">
+                          <div class="bg-white max-w-xs mx-auto rounded-2xl  border-b-4 border-[#576F72] overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer">
+                            <div class="bg-[#576F72]  flex h-20  items-center">
+                              <h1 class="text-white ml-4 border-2 py-2 px-4 rounded-full">
+                                {cls.id}
+                              </h1>
+                              <p class="ml-4 text-white uppercase">
+                                {cls.name}
+                              </p>
+                            </div>
+                            <p class="py-6 px-6 text-lg tracking-wide text-center">
+                              {cls.description}
+                            </p>
+                            <div class="flex justify-center px-5 mb-2 text-sm ">
+                              <button
+                                key={ss}
+                                onClick={() => handleDelete(cls.id)}
+                                className="flex justify-center  max-h-max whitespace-nowrap focus:outline-none  focus:ring  focus:border-blue-300 rounded max-w-max text-gray-100 bg-green-500 hover:bg-green-600 px-4 py-1 flex items-center hover:shadow-lg"
+                              >
+                                Delete
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                      {/* <div class="">
                         <div class="bg-white max-w-xs mx-auto rounded-2xl  border-b-4 border-[#576F72] overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer">
                           <div class="bg-[#576F72]  flex h-20  items-center">
                             <h1 class="text-white ml-4 border-2 py-2 px-4 rounded-full">
@@ -123,9 +184,9 @@ export default function Profile() {
                             </button>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
 
-                      <div class="">
+                      {/* <div class="">
                         <div class="bg-white max-w-xs mx-auto rounded-2xl  border-b-4 border-[#576F72] overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer">
                           <div class="h-20 bg-[#576F72] flex items-center ">
                             <h1 class="text-white ml-4 border-2 py-2 px-4 rounded-full">
@@ -147,10 +208,10 @@ export default function Profile() {
                             </button>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
 
-                      <div class="">
-                        <div class="bg-white max-w-xs mx-auto rounded-2xl  border-b-4 border-[#576F72] overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer">
+                      {/* <div class=""> */}
+                      {/* <div class="bg-white max-w-xs mx-auto rounded-2xl  border-b-4 border-[#576F72] overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer">
                           <div class="h-20 bg-[#576F72] flex items-center ">
                             <h1 class="text-white ml-4 border-2 py-2 px-4 rounded-full">
                               3
@@ -170,13 +231,17 @@ export default function Profile() {
                               Details
                             </button>
                           </div>
-                        </div>
-                      </div>
+                        </div> */}
+                      {/* </div> */}
                     </div>
-                    <div>
-                    <button onClick={handleClick} className="flex justify-center  max-h-max whitespace-nowrap focus:outline-none  focus:ring  focus:border-blue-300 rounded max-w-max text-gray-100 bg-green-500 hover:bg-green-600 px-4 py-1 flex items-center hover:shadow-lg">Show my classes</button>
+                    <div></div>
+                    <button
+                      onClick={handleClick}
+                      className="flex justify-center  max-h-max whitespace-nowrap focus:outline-none  focus:ring  focus:border-blue-300 rounded max-w-max text-gray-100 bg-green-500 hover:bg-green-600 px-4 py-1 flex items-center hover:shadow-lg"
+                    >
+                      Show my classes
+                    </button>
 
-                    </div>
                     {/* //////////////////////////////////////////////////////////////////////// */}
                   </div>
                 </div>

@@ -15,6 +15,7 @@ import cookieCutter from 'cookie-cutter';
 
 
 export default function Header() {
+  
   const { push } = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -25,6 +26,7 @@ export default function Header() {
     
       if (jwt != 0) {
         setIsLoggedIn(true);
+        
       } else {
         setIsLoggedIn(false);
       }

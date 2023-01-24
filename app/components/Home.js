@@ -10,6 +10,7 @@ import cookieCutter from 'cookie-cutter';
 export default function HomePage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
+    
     const jwt = cookieCutter.get('jwt');
 
     const loggedIn = localStorage.getItem("isLoggedIn");

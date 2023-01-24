@@ -18,7 +18,6 @@ export default function LoginForm() {
   let is_teacher = false
   let is_student = true
   let role = "student"
-
   const { push } = useRouter();
   const handleCheck = () => {
     // setChecked(!checked);
@@ -52,65 +51,18 @@ export default function LoginForm() {
       if (data.jwt){
         cookieCutter.set('jwt', data.jwt)
         push('/');
+        
       } else {
         console.log("incorrect user details")
         console.log(res)
       }
       
-
+      
     } catch (err) {
       console.error(err);
     }
   }
-  // const handleChange = (e) => {
-  //   setFormData({
-  //     ...formData,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
-  
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-     
-  //   try {
-  //     if (checked){
-  //       const res = await axios.post(
-  //         "http://127.0.0.1:8000/teacher/login/",
-  //         formData
-          
-  //       ); console.log(res.data.status);
-  //       if (res.data.status == "success") {
-  //         setIsLoggedIn(true);
-               
-  
-  //         localStorage.setItem("isLoggedIn", true);
-  //       }
-  //     }else {
-  //       const res = await axios.post(
-  //         "http://127.0.0.1:8000/student/login/",
-  //         formData
-  //       );console.log(res.data.status);
-  //       if (res.data.status == "success") {
-  //         setIsLoggedIn(true);
-               
-  
-  //         localStorage.setItem("isLoggedIn", true);
-  //       }
-  //     }
-             
 
-  //     }
-  //   catch (err) {
-  //     console.error(err);
-  //   }
-  // };
-  //const handleLogout = (e) => {
-    //e.preventDefault();
-    //setIsLoggedIn(false);
-    //localStorage.removeItem("isLoggedIn");
-  //};
-
-  
  
   return (
     <div class=" h-screen w-screen ">

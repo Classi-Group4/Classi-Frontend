@@ -4,10 +4,13 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
 
 export default function Form() {
   const [userData, setUserData] = useState(null);
-  
+  const { push } = useRouter();
+
   const [userInput, setUserInput] = useState({
     category: "",
     classname: "",
@@ -35,7 +38,7 @@ export default function Form() {
 
   }, []);
   
-  // 
+ 
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -52,6 +55,9 @@ export default function Form() {
       })
       .then((res) => {
         console.log(res);
+        alert("Class has been created!")
+        push('/profile');
+        
       })
       .catch((err) => {
         console.log(err);

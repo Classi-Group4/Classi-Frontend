@@ -7,6 +7,7 @@ import axios from 'axios';
 export default function Class() {
     const [classDetails, setClasses] = useState([]);
     const [studentId,setUserId] = useState('')
+    const [userRole,setRole] = useState()
     
     useEffect(() => {
         const ID = localStorage.getItem("ID")
@@ -34,6 +35,7 @@ export default function Class() {
         })
         .then(res => {
           setUserId(res.data.id);
+          setRole(res.data.role)
           console.log(studentId)
         })
         .catch(err => {
@@ -91,12 +93,12 @@ export default function Class() {
                                 </li>
                             </ul>
                         </div>
-                        <button onClick={handleClick} className="block flex items-center justify-center bg-[#c7e0e0] hover:bg-[#E4DCCF] p-8 text-md font-semibold text-gray-800 uppercase mt-16">
+                        {(userRole == 'student') ? <button onClick={handleClick} className="block flex items-center justify-center bg-[#c7e0e0] hover:bg-[#E4DCCF] p-8 text-md font-semibold text-gray-800 uppercase mt-16">
                             {/* If not purchased */}
                             <span>Purchase</span>
                             <span className="font-medium text-gray-700 ml-2">➔</span>
                             {/* if purchased => hide span */}
-                        </button>
+                        </button>:(null)}
                     </div>
                     <div className="w-full md:w-1/2 relative z-0 px-8 md:px-0 md:py-16">
                         <div className="bg-[#576F72] text-white rounded-b md:rounded-b-none md:rounded-r shadow-lg overflow-hidden">
@@ -110,10 +112,10 @@ export default function Class() {
                                 <div className="flex items-center justify-center w-1/2 text-center p-4 border-r border-[#7D9D9C]">Teacher Category</div>
                                 <div className="flex items-center justify-center w-1/2 text-center p-4">What they teach</div>
                             </div>
-                            <a className="block flex items-center justify-center bg-[#7D9D9C] hover:bg-[#bbae9a] hover:text-[#576F72] p-8 text-md font-semibold text-[#E4DCCF] uppercase mt-8" href="#">
-                                <span>Teacher Profile</span>
-                                <span className="font-medium text-[#E4DCCF] ml-2 hover:text-[#576F72]">➔</span>
-                            </a>
+                            <div className="block flex items-center justify-center bg-[#7D9D9C]  hover:text-[#576F72] p-8 text-md font-semibold text-[#E4DCCF] uppercase mt-8" href="#">
+                                {/* <span>Teacher Profile</span> */}
+                                {/* <span className="font-medium text-[#E4DCCF] ml-2 hover:text-[#576F72]">➔</span> */}
+                            </div>
                         </div>
                     </div>
                 </div>

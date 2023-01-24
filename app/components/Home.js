@@ -73,13 +73,17 @@ export default function HomePage() {
             <br>
             </br>
             <div>
-
+            <h3 className="block font-bold text-black-700">If You Are A Student You Can Search</h3>
+            <h3 className="block font-bold text-black-700">Using The Categories Page</h3>
+            
             </div>
+            <div></div>
           </div>
         </div>
       </section>
       <section>
-        <div></div>
+        <div>
+        </div>
       </section>
     </div>
   );

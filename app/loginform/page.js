@@ -148,26 +148,7 @@ export default function LoginForm() {
                       required
                     />
                   </div>
-                  <div class="flex flex-col mt-8">
-                    <button
-                      type="submit"
-                      class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded"
-                    >
-                      Login
-                    </button>
-                    <br></br>
-                    <button
-                      //onClick={handleLogout}
-                      class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded"
-                    >
-                      Logout
-                    </button>
-                    
-                  </div>
-                </form>
-                <br></br>
-                <br></br>
-                <div>
+                  <div>
                   <input
                       type="checkbox"
                       value="student"
@@ -178,6 +159,20 @@ export default function LoginForm() {
                       class="mr-2"
                   />Log in as a Teacher 
                 </div>
+                  <div class="flex flex-col mt-8">
+                    <button
+                      type="submit"
+                      class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded"
+                    >
+                      Login
+                    </button>
+                    <br></br>
+                    
+                  </div>
+                </form>
+                <br></br>
+                <br></br>
+
               </div>
             </div>
           </div>

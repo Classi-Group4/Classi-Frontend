@@ -44,10 +44,9 @@ export default function LoginForm() {
         body: JSON.stringify({  email, password,is_teacher,is_student,role }),
         
       });
-      // console.log(role,is_teacher,is_student)
+      
       const data = await res.json();
-      // console.log(data.jwt);
-      // console.log(res.data.role)
+      
       console.log(data.jwt)
       
       if (data.jwt){

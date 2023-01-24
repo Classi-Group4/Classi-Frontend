@@ -17,6 +17,7 @@ export default function Profile() {
         console.error(error);
       }
     })();
+    
   }, []);
 
   const handleClick = (e) => {

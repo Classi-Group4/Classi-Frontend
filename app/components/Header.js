@@ -51,27 +51,27 @@ export default function Header() {
               <a href="/"><img className="w-20" src="https://cdn.discordapp.com/attachments/1062676267507384395/1064961503456931950/classi-high-resolution-logo-color-on-transparent-background.png" /></a>
               <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
                 <li>
-                  <a className="hover:text-gray-200" href="/">
+                  <a className="hover:text-gray-200 text-xl" href="/">
                     Home
                   </a>
                 </li>
                 <li>
-                  <a className="hover:text-gray-200" href="/categories">
+                  <a className="hover:text-gray-200 text-xl" href="/categories">
                     Categories
                   </a>
                 </li>
                 <li>
-                  <a className="hover:text-gray-200" href="/about">
+                  <a className="hover:text-gray-200 text-xl" href="/about">
                     About
                   </a>
                 </li>
-                <li>
-                  <a className="hover:text-gray-200" href="/profile">
+                {isLoggedIn && <li>
+                  <a className="hover:text-gray-200 text-xl" href="/profile">
                     Profile
                   </a>
-                </li>
+                </li>}
                 {isLoggedIn && <li>
-                  <a className="hover:text-gray-200">
+                  <a className="hover:text-gray-200 text-xl">
                     <button onClick={handleLogout}>
                       Logout
                     </button>

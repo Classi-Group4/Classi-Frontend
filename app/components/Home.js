@@ -5,10 +5,13 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import cookieCutter from "cookie-cutter";
+import axios from "axios";
 
 
 export default function HomePage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [role, setRole] = useState("");
+
   useEffect(() => {
 
     const jwt = cookieCutter.get('jwt');
@@ -20,8 +23,20 @@ export default function HomePage() {
       setIsLoggedIn(false);
     }
 
-
+    axios
+        .get("http://localhost:8000/api/user", {
+          withCredentials: true, // this sends the cookie along with the request
+        })
+        .then((res) => {
+          setRole(res.data.role);
+          console.log("test   " + res.data.role)
+        })
+        .catch((err) => {
+          console.log(err);
+        });
   }, []);
+  console.log(role)
+
 
 
   return (
@@ -67,7 +82,7 @@ export default function HomePage() {
                 Log in
               </a>
             </div>}
-            {isLoggedIn && <div className="mt-8 flex flex-wrap gap-4 text-center ">
+            {(role == "student")  && <div className="mt-8 flex flex-wrap gap-4 text-center ">
               <br>
               </br>
               <div>
@@ -79,6 +94,23 @@ export default function HomePage() {
                   class="text-white py-2 px-4 uppercase rounded bg-[#7D9D9C] hover:bg-[#576F72] shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
                 >
                   Categories
+                </button>
+                </Link>
+              </div>
+              <div></div></div>}
+
+              {(role == "teacher")  && <div className="mt-8 flex flex-wrap gap-4 text-center ">
+              <br>
+              </br>
+              <div>
+                <p className="sm:text-xl sm:leading-relaxed">Start teaching now!</p>
+                <p>You can start by creating a class right away!</p>
+                <br></br>
+                <Link href='/form'>
+                <button
+                  class="text-white py-2 px-4 uppercase rounded bg-[#7D9D9C] hover:bg-[#576F72] shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
+                >
+                  Create a new Class
                 </button>
                 </Link>
               </div>

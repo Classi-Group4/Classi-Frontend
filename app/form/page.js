@@ -66,17 +66,6 @@ export default function Form() {
 
   
 
-  // e.preventDefault();
-  // setUserInput({...userInput,
-  // category: e.target.category.value,
-  // classname: e.target.classname.value,
-  // teacher_name: "ss",
-  // teacher_email: "mohammad@gmail.com",
-  // location: e.target.location.value,
-  // available_times: e.target.duration.value,
-  // description: e.target.teacherName.value,
-  // price : ""
-  // });
 
   return (
     <div className="flex justify-center bg-[url(https://images.unsplash.com/photo-1587612049655-c1030366a74a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)] bg-cover bg-center bg-no-repeat ">
@@ -151,7 +140,7 @@ export default function Form() {
         <br />
 
         <label className="block font-medium text-sm mb-2">
-          location:
+          Location:
           <input
             className="block w-full rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline-blue border border-gray-300"
             type="text"
@@ -166,7 +155,7 @@ export default function Form() {
         <br />
 
         <label className="block font-medium text-sm mb-2">
-          available_times:
+          Available Hours:
           <input
             value={userInput.available_times}
             onChange={(event) =>
@@ -198,7 +187,7 @@ export default function Form() {
         <br />
 
         <label className="block font-medium text-sm mb-2">
-          description:
+          Class Description:
           <input
             className="block w-full rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline-blue border border-gray-300"
             type="text"

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export default function Profile() {
   const [userData, setUserData] = useState(null);
@@ -9,6 +10,8 @@ export default function Profile() {
   const [teacherEmail, setTeacherE] = useState("");
   const [filteredClasses, setFilteredClasses] = useState([]);
   const [role, setRole] = useState("");
+  const { push } = useRouter();
+
 
   useEffect(() => {
     (async () => {
@@ -58,6 +61,11 @@ export default function Profile() {
       // console.log(classes);
     }
   };
+  const handleClick2 = (e) => {
+    e.preventDefault()
+    push('/form');
+    
+  }
   const handleDelete = (id) => {
     if (role == "teacher") {
       axios
@@ -96,7 +104,7 @@ export default function Profile() {
               {userData && (
                 <div>
                   <div class="flex flex-wrap justify-center">
-                    <div class="relative max-w-md mx-auto md:max-w-2xl mt-2 min-w-0 break-words  px-80 ml-auto  w-full mb-6 rounded-lg mt-7">
+                    <div class="relative max-w-md mx-auto md:max-w-2xl mt-2 min-w-0 break-words  px-80 ml-auto w-full mb-6 rounded-lg mt-7">
                       <div class="py-5">
                         <img
                           alt="..."
@@ -127,13 +135,25 @@ export default function Profile() {
                       <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>
                       {userData.role}
                     </div>
+                    { (role == "teacher") && <button
+                      onClick={handleClick2}
+                      className="flex justify-center ml-auto mr-auto  max-h-max whitespace-nowrap focus:outline-none  focus:ring  focus:border-blue-300 rounded max-w-max text-gray-100 bg-[#7D9D9C] hover:bg-green-600 px-4 py-1 flex items-center hover:shadow-lg"
+                    >
+                      Create a new class
+                    </button>}
                   </div>
                 </div>
               )}
-              <div class="mt-10 py-10 border-t border-blueGray-500 text-center">
+              <div class="mt-10 py-10 border-t border-blueGray-500 text-center items-center">
                 <h3 class="text-4xl font-semibold leading-normal  mb-2 text-blueGray-700 mb-2">
                   Your Courses
                 </h3>
+                <button
+                      onClick={handleClick}
+                      className="flex justify-center ml-auto mr-auto  max-h-max whitespace-nowrap focus:outline-none  focus:ring  focus:border-blue-300 rounded max-w-max text-gray-100 bg-[#7D9D9C] hover:bg-green-600 px-4 py-1 flex items-center hover:shadow-lg"
+                    >
+                      Show my classes
+                    </button>
                 <div class="flex flex-wrap justify-center">
                   <div class="w-full lg:w-9/12 px-4">
                     {/* ///////////////////////////card/////////////////////////////// */}
@@ -143,7 +163,7 @@ export default function Profile() {
                           <div class="bg-white max-w-xs mx-auto rounded-2xl  border-b-4 border-[#576F72] overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer">
                             <div class="bg-[#576F72]  flex h-20  items-center">
                               <h1 class="text-white ml-4 border-2 py-2 px-4 rounded-full">
-                                {cls.id}
+                                {cls.name}
                               </h1>
                               <p class="ml-4 text-white uppercase">
                                 {cls.name}
@@ -164,83 +184,14 @@ export default function Profile() {
                           </div>
                         </div>
                       ))}
-                      {/* <div class="">
-                        <div class="bg-white max-w-xs mx-auto rounded-2xl  border-b-4 border-[#576F72] overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer">
-                          <div class="bg-[#576F72]  flex h-20  items-center">
-                            <h1 class="text-white ml-4 border-2 py-2 px-4 rounded-full">
-                              1
-                            </h1>
-                            <p class="ml-4 text-white uppercase">Course1</p>
-                          </div>
-                          <p class="py-6 px-6 text-lg tracking-wide text-center">
-                            Description Goes here
-                          </p>
-                          <div class="flex justify-center px-5 mb-2 text-sm ">
-                            <button
-                              type="button"
-                              class="border border-[#576F72] text-[#576F72] rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:text-white hover:bg-[#b27f7f] focus:outline-none focus:shadow-outline"
-                            >
-                              Details
-                            </button>
-                          </div>
-                        </div>
-                      </div> */}
+                      
 
-                      {/* <div class="">
-                        <div class="bg-white max-w-xs mx-auto rounded-2xl  border-b-4 border-[#576F72] overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer">
-                          <div class="h-20 bg-[#576F72] flex items-center ">
-                            <h1 class="text-white ml-4 border-2 py-2 px-4 rounded-full">
-                              2
-                            </h1>
-                            <p class=" text-white text-base ml-4 uppercase">
-                              Course2
-                            </p>
-                          </div>
-                          <p class="py-6 px-6 text-lg tracking-wide text-center">
-                            Description Goes Here
-                          </p>
-                          <div class="flex justify-center px-5 mb-2 text-sm ">
-                            <button
-                              type="button"
-                              class="border border-[#576F72] text-[#576F72] rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:text-white hover:bg-green-600 focus:outline-none focus:shadow-outline"
-                            >
-                              Details
-                            </button>
-                          </div>
-                        </div>
-                      </div> */}
+                      
 
-                      {/* <div class=""> */}
-                      {/* <div class="bg-white max-w-xs mx-auto rounded-2xl  border-b-4 border-[#576F72] overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer">
-                          <div class="h-20 bg-[#576F72] flex items-center ">
-                            <h1 class="text-white ml-4 border-2 py-2 px-4 rounded-full">
-                              3
-                            </h1>
-                            <p class=" text-white text-base ml-4 uppercase">
-                              Course3
-                            </p>
-                          </div>
-                          <p class="py-6  px-6 text-lg tracking-wide text-center">
-                            Description Goes Here
-                          </p>
-                          <div class="flex justify-center px-5 mb-2 text-sm ">
-                            <button
-                              type="button"
-                              class="border border-[#576F72] text-[#576F72] rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:text-white hover:bg-red-600 focus:outline-none focus:shadow-outline"
-                            >
-                              Details
-                            </button>
-                          </div>
-                        </div> */}
-                      {/* </div> */}
+                      
                     </div>
                     <div></div>
-                    <button
-                      onClick={handleClick}
-                      className="flex justify-center  max-h-max whitespace-nowrap focus:outline-none  focus:ring  focus:border-blue-300 rounded max-w-max text-gray-100 bg-green-500 hover:bg-green-600 px-4 py-1 flex items-center hover:shadow-lg"
-                    >
-                      Show my classes
-                    </button>
+                    
 
                     {/* //////////////////////////////////////////////////////////////////////// */}
                   </div>

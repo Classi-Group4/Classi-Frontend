@@ -64,7 +64,7 @@ export default function Profile() {
   const handleClick2 = (e) => {
     e.preventDefault()
     push('/form');
-    
+
   }
   const handleDelete = (id) => {
     if (role == "teacher") {
@@ -98,32 +98,27 @@ export default function Profile() {
   return (
     <>
       <section class="mt-10">
-        <div class=" container mx-auto px-4">
-          <div class="  bg-[#e5e5e5] hover:bg-[#bfbfbf] flex flex-col min-w-0 break-words  w-full mb-6 shadow-xl rounded-lg -mt-500">
+        <div class=" container mx-auto px-20">
+          <div class="bg-[#e5e5e5] hover:bg-[#bfbfbf] flex flex-col min-w-0 break-words  w-full mb-6 shadow-xl rounded-lg -mt-500">
             <div class="px-6">
               {userData && (
-                <div>
-                  <div class="flex flex-wrap justify-center">
+                <div className="">
+                  <div>
                     <div class="relative max-w-md mx-auto md:max-w-2xl mt-2 min-w-0 break-words  px-80 ml-auto w-full mb-6 rounded-lg mt-7">
                       <div class="py-5">
                         <img
-                          alt="..."
+                          alt="Profile_picture"
                           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcw4B2qZUXkzZtUdrAicj8exPFgt4JbgBea6lafJabwpEGg8hHA89WOFGUpH8wOMpp_8w&usqp=CAU"
-                          class="shadow-xl rounded-full h-auto align-middle border-none absolute  -ml-20 lg:-ml-16 max-w-150-px"
+                          class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 flex items-center justify-center text-indigo-500"
                         />
                       </div>
                     </div>
-                    <div class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
-                      <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase"></div>
-                    </div>
-                    <div class="w-full lg:w-4/12 px-4 lg:order-1">
-                      <div class=" flex justify-center py-4 lg:pt-4 pt-8"></div>
-                    </div>
                   </div>
-                  <br></br>
-                  <br></br>
-                  <br></br>
-                  <div class="text-center mt-20">
+                  <br />
+                  <br />
+                  <br />
+
+                  <div class="mt-20 text-center">
                     <h3 class="text-4xl font-semibold leading-normal  mb-2 text-blueGray-700 mb-2">
                       {userData.name}
                     </h3>
@@ -135,7 +130,7 @@ export default function Profile() {
                       <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>
                       {userData.role}
                     </div>
-                    { (role == "teacher") && <button
+                    {(role == "teacher") && <button
                       onClick={handleClick2}
                       className="flex justify-center ml-auto mr-auto  max-h-max whitespace-nowrap focus:outline-none  focus:ring  focus:border-blue-300 rounded max-w-max text-gray-100 bg-[#7D9D9C] hover:bg-green-600 px-4 py-1 flex items-center hover:shadow-lg"
                     >
@@ -144,34 +139,33 @@ export default function Profile() {
                   </div>
                 </div>
               )}
-              <div class="mt-10 py-10 border-t border-blueGray-500 text-center items-center">
-                <h3 class="text-4xl font-semibold leading-normal  mb-2 text-blueGray-700 mb-2">
+              <div class="mt-10 py-10 border-t-2 border-white text-center items-center">
+                <h3 class="text-4xl font-semibold leading-normal  mb-8 text-blueGray-700 mb-2">
                   Your Courses
                 </h3>
                 <button
-                      onClick={handleClick}
-                      className="flex justify-center ml-auto mr-auto  max-h-max whitespace-nowrap focus:outline-none  focus:ring  focus:border-blue-300 rounded max-w-max text-gray-100 bg-[#7D9D9C] hover:bg-green-600 px-4 py-1 flex items-center hover:shadow-lg"
-                    >
-                      Show my classes
-                    </button>
+                  onClick={handleClick}
+                  className="flex justify-center ml-auto mr-auto  max-h-max whitespace-nowrap focus:outline-none  focus:ring  focus:border-blue-300 rounded max-w-max text-gray-100 bg-[#7D9D9C] hover:bg-green-600 px-4 py-1 flex items-center hover:shadow-lg"
+                >
+                  Show my classes
+                </button>
                 <div class="flex flex-wrap justify-center">
                   <div class="w-full lg:w-9/12 px-4">
                     {/* ///////////////////////////card/////////////////////////////// */}
-                    <div class=" flex  flex-col  md:flex-row justify-center  flex-wrap gap-20 mt-10  ">
+                    <div class=" flex flex-col  md:flex-row justify-center  flex-wrap gap-20 mt-10  ">
                       {filteredClasses.map((cls, ss) => (
-                        <div class="">
+                        <div class="p-8 rounded w-64 active:bg-gray-100">
                           <div class="bg-white max-w-xs mx-auto rounded-2xl  border-b-4 border-[#576F72] overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer">
-                            <div class="bg-[#576F72]  flex h-20  items-center">
-                              <h1 class="text-white ml-4 border-2 py-2 px-4 rounded-full">
-                                {cls.name}
-                              </h1>
-                              <p class="ml-4 text-white uppercase">
-                                {cls.name}
+                            <div>
+                              <div class="bg-[#576F72] h-20 text-center">
+                                <p class="text-white px-4 py-10">
+                                  {cls.classname}
+                                </p>
+                              </div>
+                              <p class="py-6 px-6 text-lg tracking-wide text-center">
+                                {cls.description}
                               </p>
                             </div>
-                            <p class="py-6 px-6 text-lg tracking-wide text-center">
-                              {cls.description}
-                            </p>
                             <div class="flex justify-center px-5 mb-2 text-sm ">
                               <button
                                 key={ss}
@@ -184,16 +178,10 @@ export default function Profile() {
                           </div>
                         </div>
                       ))}
-                      
 
-                      
-
-                      
                     </div>
                     <div></div>
-                    
 
-                    {/* //////////////////////////////////////////////////////////////////////// */}
                   </div>
                 </div>
               </div>

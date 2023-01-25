@@ -70,14 +70,14 @@ export default function HomePage() {
             {!isLoggedIn && <div className="mt-8 flex flex-wrap gap-4 text-center ">
               <a
                 href="/signup"
-                className="block w-full rounded bg-gray-800 px-12 py-3 text-sm font-medium text-white shadow hover:bg-gray-800 focus:outline-none focus:ring active:bg-gray-500 sm:w-auto"
+                className="block w-full rounded bg-[#7D9D9C] px-12 py-3 text-sm font-medium text-white shadow hover:bg-[#576F72] focus:outline-none focus:ring active:bg-gray-500 sm:w-auto"
               >
                 Sign Up
               </a>
               <br></br>
               <a
                 href="/loginform"
-                className=" block w-full rounded bg-white px-12 py-3 text-sm font-medium text-gray-800 shadow hover:text-gray-600 focus:outline-none focus:ring active:text-gray-500 sm:w-auto"
+                className=" block w-full rounded bg-white px-12 py-3 text-sm font-medium text-gray-800 shadow hover:text-gray-600 hover:bg-[#ffffffc4] focus:outline-none focus:ring active:text-gray-500 sm:w-auto"
               >
                 Log in
               </a>

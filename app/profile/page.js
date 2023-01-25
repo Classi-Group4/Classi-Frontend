@@ -99,7 +99,7 @@ export default function Profile() {
     <>
       <section class="mt-10">
         <div class=" container mx-auto px-20">
-          <div class="bg-[#e5e5e5] hover:bg-[#bfbfbf] flex flex-col min-w-0 break-words  w-full mb-6 shadow-xl rounded-lg -mt-500">
+          <div class="bg-[#e5e5e5] flex flex-col min-w-0 break-words  w-full mb-6 shadow-xl rounded-lg -mt-500">
             <div class="px-6">
               {userData && (
                 <div className="">
@@ -132,7 +132,7 @@ export default function Profile() {
                     </div>
                     {(role == "teacher") && <button
                       onClick={handleClick2}
-                      className="flex justify-center ml-auto mr-auto  max-h-max whitespace-nowrap focus:outline-none  focus:ring  focus:border-blue-300 rounded max-w-max text-gray-100 bg-[#7D9D9C] hover:bg-green-600 px-4 py-1 flex items-center hover:shadow-lg"
+                      className="flex justify-center ml-auto mr-auto  max-h-max whitespace-nowrap focus:outline-none  focus:ring  focus:border-blue-300 rounded max-w-max text-gray-100 bg-[#7D9D9C] hover:bg-[#576F72] px-4 py-1 flex items-center hover:shadow-lg"
                     >
                       Create a new class
                     </button>}
@@ -145,7 +145,7 @@ export default function Profile() {
                 </h3>
                 <button
                   onClick={handleClick}
-                  className="flex justify-center ml-auto mr-auto  max-h-max whitespace-nowrap focus:outline-none  focus:ring  focus:border-blue-300 rounded max-w-max text-gray-100 bg-[#7D9D9C] hover:bg-green-600 px-4 py-1 flex items-center hover:shadow-lg"
+                  className="flex justify-center ml-auto mr-auto  max-h-max whitespace-nowrap focus:outline-none  focus:ring  focus:border-blue-300 rounded max-w-max text-gray-100 bg-[#7D9D9C] hover:bg-[#576F72] px-4 py-1 flex items-center hover:shadow-lg"
                 >
                   Show my classes
                 </button>

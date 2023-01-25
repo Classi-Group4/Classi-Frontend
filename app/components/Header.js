@@ -47,8 +47,8 @@ export default function Header() {
       <div>
         <section className="relative mx-auto">
           <nav className="flex justify-between bg-[#576F72] text-white w-screen">
-            <div className="px-5 xl:px-12 py-6 flex w-full items-center">
-              <a href="/"><img className="w-20" src="https://cdn.discordapp.com/attachments/1062676267507384395/1064961503456931950/classi-high-resolution-logo-color-on-transparent-background.png" /></a>
+            <div className="px-5 xl:px-12 py-4 flex w-full items-center">
+              <a href="/"><img className="w-24" src="https://cdn.discordapp.com/attachments/1062676267507384395/1064961503456931950/classi-high-resolution-logo-color-on-transparent-background.png" /></a>
               <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
                 <li>
                   <a className="hover:text-gray-200 text-xl" href="/">

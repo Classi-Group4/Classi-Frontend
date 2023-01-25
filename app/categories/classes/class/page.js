@@ -100,6 +100,9 @@ export default function Class() {
                             <span className="font-medium text-gray-700 ml-2">➔</span>
                             {/* if purchased => hide span */}
                         </button>:(null)}
+                        {(userRole == 'teacher') ? <button className="block flex items-center w-full justify-center bg-[#c7e0e0] p-8 text-md font-semibold text-gray-800 uppercase mt-16">
+
+                        </button>:(null)}
                     </div>
                     <div className="w-full md:w-1/2 relative z-0 px-8 md:px-0 md:py-16">
                         <div className="bg-[#576F72] text-white rounded-b md:rounded-b-none md:rounded-r shadow-lg overflow-hidden">

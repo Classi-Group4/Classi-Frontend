@@ -89,8 +89,8 @@ export default function signup() {
           <h1 className="text-4xl text-blue-500 font-bold">
             Create New Account
           </h1>
-          <p className="text-white ">
-            Welcome to our Site ,Let's learn Together
+          <p className="text-white mt-6 ">
+            Welcome to our Site, Let's learn Together !
           </p>
         </div>
         <div className="container mx-auto flex flex-col items-center">

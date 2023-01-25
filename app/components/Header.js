@@ -8,36 +8,32 @@ import { useRouter } from "next/navigation";
 
 import { useEffect } from "react";
 import { useState } from "react";
-import cookieCutter from 'cookie-cutter';
-
-
-
-
+import cookieCutter from "cookie-cutter";
 
 export default function Header() {
-  
+
   const { push } = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const jwt = cookieCutter.get('jwt');
     // console.log(jwt)
-    
-    
-      if (jwt != 0) {
-        setIsLoggedIn(true);
-        
-      } else {
-        setIsLoggedIn(false);
-      }
-    
+
+
+    if (jwt != 0) {
+      setIsLoggedIn(true);
+
+    } else {
+      setIsLoggedIn(false);
+    }
+
   }, []);
   const handleLogout = async () => {
     try {
       await axios.post("http://localhost:8000/api/logout");
       cookieCutter.set('jwt', 0)
       console.log("logout")
-     setIsLoggedIn(false)
+      setIsLoggedIn(false)
       push('/loginform');
     } catch (err) {
       console.error(err);
@@ -52,7 +48,7 @@ export default function Header() {
         <section className="relative mx-auto">
           <nav className="flex justify-between bg-[#576F72] text-white w-screen">
             <div className="px-5 xl:px-12 py-6 flex w-full items-center">
-              <a href="/"><img className="w-20"src="https://cdn.discordapp.com/attachments/1062676267507384395/1064961503456931950/classi-high-resolution-logo-color-on-transparent-background.png" /></a>
+              <a href="/"><img className="w-20" src="https://cdn.discordapp.com/attachments/1062676267507384395/1064961503456931950/classi-high-resolution-logo-color-on-transparent-background.png" /></a>
               <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
                 <li>
                   <a className="hover:text-gray-200" href="/">
@@ -75,12 +71,12 @@ export default function Header() {
                   </a>
                 </li>
                 {isLoggedIn && <li>
-                <a className="hover:text-gray-200"> 
-              <button onClick={handleLogout}>
-                Logout
-              </button>
-            </a>
-            </li>}
+                  <a className="hover:text-gray-200">
+                    <button onClick={handleLogout}>
+                      Logout
+                    </button>
+                  </a>
+                </li>}
               </ul>
               <div className="hidden xl:flex items-center space-x-5 items-center">
                 <a className="flex items-center hover:text-gray-200" href="/profile">
@@ -101,9 +97,9 @@ export default function Header() {
                 </a>
               </div>
             </div>
-            
+
           </nav>
-          
+
         </section>
       </div>
     </header>

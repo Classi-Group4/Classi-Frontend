@@ -47,7 +47,7 @@ export default function Classes() {
                     <h1 className="text-4xl">{selectedCategory} Classes</h1>
                 </div>
 <Link href='/categories'>
-                <button className=" block rounded-lg border border-green-700 bg-green-600 py-1.5 px-4 font-medium text-white transition-colors hover:bg-green-700 active:bg-green-800 disabled:opacity-50">Return To Categories</button>
+                <button className=" block rounded-lg border border-green-700 bg-[#576F72] py-1.5 px-4 font-medium text-white transition-colors hover:bg-[#7D9D9C] active:bg-green-800 disabled:opacity-50">Return To Categories</button>
                 </Link>
             </div>
             <div className="flex flex-wrap grid grid-cols-4 gap-4">
@@ -67,7 +67,7 @@ export default function Classes() {
                                 <p class="text-gray-600 font-light text-md">
                                     {cls.description}
                                 </p>
-                                <button key={ss} onClick={()=> saveClass(cls.id)} class="my-3 px-2 py-1 rounded bg-[#576F72] text-white" >Class info</button>
+                                <button key={ss} onClick={()=> saveClass(cls.id)} class="my-3 px-2 py-1 rounded bg-[#576F72] text-white hover:bg-[#7D9D9C]" >Class info</button>
                                 <div class="flex flex-wrap justify-starts items-center py-1.5 border-b-2 text-xs text-white font-medium">
                                     
                                 </div>

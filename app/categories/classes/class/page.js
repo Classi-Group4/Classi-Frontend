@@ -3,6 +3,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from 'axios';
+import Link from "next/link";
 
 export default function Class() {
     const [classDetails, setClasses] = useState([]);
@@ -65,7 +66,7 @@ export default function Class() {
                         <div className="block sm:flex md:block lg:flex items-center justify-center">
                             <div className="mt-8 sm:m-8 md:m-0 md:mt-8 lg:m-8 text-center">
                                 <div className="inline-flex items-center">
-                                    <span className="text-3xl font-medium">{classDetails.category}</span>
+                                    <span className="text-2xl font-medium">Description</span>
                                     
                                 </div>
                                 <span className="block text-sm text-gray-600 mt-2">{classDetails.description}</span>
@@ -79,26 +80,28 @@ export default function Class() {
                                     <div className="bg-[#c7e0e0] rounded-full p-2 fill-current text-[#7D9D9C]">
 
                                     </div>
-                                    <span className="text-gray-700 text-lg ml-3">Category: Name</span>
+                                    <span className="text-gray-700 text-lg ml-3">Category: {classDetails.category}</span>
                                 </li>
                                 <li className="flex items-center mt-3">
                                     <div className="bg-[#c7e0e0] rounded-full p-2 fill-current text-[#7D9D9C]">
                                     </div>
-                                    <span className="text-gray-700 text-lg ml-3">Available time: 00:00 - 00:00</span>
+                                    <span className="text-gray-700 text-lg ml-3">Available time: {classDetails.available_times}</span>
                                 </li>
                                 <li className="flex items-center mt-3">
                                     <div className="bg-[#c7e0e0] rounded-full p-2 fill-current text-[#7D9D9C]">
                                     </div>
-                                    <span className="text-gray-700 text-lg ml-3">Price: $00.0/hr</span>
+                                    <span className="text-gray-700 text-lg ml-3">Price: ${classDetails.price}/hr</span>
                                 </li>
                             </ul>
                         </div>
+                        <div className="block flex items-center justify-center bg-[#c7e0e0]  hover:text-[#576F72] p-8 text-md font-semibold text-[#E4DCCF] uppercase mt-8" href="#"/>
                         {(userRole == 'student') ? <button onClick={handleClick} className="block flex items-center justify-center bg-[#c7e0e0] hover:bg-[#E4DCCF] p-8 text-md font-semibold text-gray-800 uppercase mt-16">
                             {/* If not purchased */}
                             <span>Purchase</span>
                             <span className="font-medium text-gray-700 ml-2">➔</span>
                             {/* if purchased => hide span */}
                         </button>:(null)}
+
                     </div>
                     <div className="w-full md:w-1/2 relative z-0 px-8 md:px-0 md:py-16">
                         <div className="bg-[#576F72] text-white rounded-b md:rounded-b-none md:rounded-r shadow-lg overflow-hidden">
@@ -109,17 +112,18 @@ export default function Class() {
                             <div className="mt-8 border border-[#7D9D9C] mx-8 lg:mx-16 flex flex-wrap">
                                 <div className="flex items-center justify-center w-1/2 text-center p-4 border-r border-b border-[#7D9D9C]">Email</div>
                                 <div className="flex items-center justify-center w-1/2 text-center p-4 border-b border-[#7D9D9C]">{classDetails.teacher_email}</div>
-                                <div className="flex items-center justify-center w-1/2 text-center p-4 border-r border-[#7D9D9C]">Teacher Category</div>
-                                <div className="flex items-center justify-center w-1/2 text-center p-4">What they teach</div>
+                                <div className="flex items-center justify-center w-1/2 text-center p-4 border-r border-[#7D9D9C]">Teacher Number</div>
+                                <div className="flex items-center justify-center w-1/2 text-center p-4">000-000000000</div>
                             </div>
-                            <div className="block flex items-center justify-center bg-[#7D9D9C]  hover:text-[#576F72] p-8 text-md font-semibold text-[#E4DCCF] uppercase mt-8" href="#">
-                                {/* <span>Teacher Profile</span> */}
-                                {/* <span className="font-medium text-[#E4DCCF] ml-2 hover:text-[#576F72]">➔</span> */}
+                            <div className="block flex items-center justify-center bg-[#7D9D9C]  hover:text-[#576F72] p-8 text-md font-semibold text-[#E4DCCF] uppercase mt-8">
+                                <Link href="/categories/classes">
+                                <span>Return to classes</span>
+                                <span className="font-medium text-[#E4DCCF] ml-2 hover:text-[#576F72]">➔</span>
+                                </Link>
                             </div>
                         </div>
                     </div>
                 </div>
-
 
             </div>
         </>

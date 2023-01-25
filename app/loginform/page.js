@@ -82,25 +82,25 @@ export default function LoginForm() {
                   method="POST"
                   action="#"
                 >
-                  <div class="flex flex-col mt-4">
+                  <div class="flex flex-col my-6">
                     <input
                       type="email"
                       name="email"
-                      placeholder="Email"
+                      placeholder="  Email"
                       onChange={e => setEmail(e.target.value)}
                       required
                     />
                   </div>
-                  <div class="flex flex-col mt-4">
+                  <div class="flex flex-col my-6">
                     <input
                       type="password"
                       name="password"
-                      placeholder="Password"
+                      placeholder="  Password"
                       onChange={e => setPassword(e.target.value)}
                       required
                     />
                   </div>
-                  <div>
+                  <div className="mt-6 ml-1">
                   <input
                       type="checkbox"
                       value="student"
@@ -111,7 +111,7 @@ export default function LoginForm() {
                       class="mr-2"
                   />Log in as a Teacher 
                 </div>
-                  <div class="flex flex-col mt-8">
+                  <div class="flex flex-col mt-6">
                     <button
                       type="submit"
                       class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded"

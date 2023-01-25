@@ -36,7 +36,7 @@ export default function Categories() {
         ))}
       </ul>
     </div> */}
-    <h1 className="text-5xl font-bold mt-6 flex justify-center text-[#111827]">Categories</h1>
+    <h1 className="text-5xl font-bold mt-20 flex justify-center text-[#111827]">Categories</h1>
     <div className="mt-6 flex flex-wrap	grid grid-cols-3 gap-4">
         
       <div className="flex flex-col justify-center items-center max-w-sm mx-auto my-8">
@@ -47,11 +47,11 @@ export default function Categories() {
           />
         </div>
         <div className="w-56 md:w-64 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden">
-          <div className="py-2 text-center font-bold uppercase tracking-wide text-gray-800">
+          <div className="py-2 text-center font-bold uppercase tracking-wide text-[#576F72]">
             Personal Training
           </div>
-          <div className="flex items-center justify-center py-2 px-3 bg-gray-400">
-            <button onClick={()=> handleCategorySelection("Personal Training")}  className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
+          <div className="flex items-center justify-center py-2 px-3 bg-[#c7e0e0]">
+            <button onClick={()=> handleCategorySelection("Personal Training")}  className=" bg-[#7D9D9C] text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
               See Classes
             </button>
           </div>
@@ -65,11 +65,11 @@ export default function Categories() {
           />
         </div>
         <div className="w-56 md:w-64 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden">
-          <div className="py-2 text-center font-bold uppercase tracking-wide text-gray-800">
+          <div className="py-2 text-center font-bold uppercase tracking-wide text-[#576F72]">
             Music
           </div>
-          <div className="flex items-center justify-center py-2 px-3 bg-gray-400">
-            <button onClick={()=> handleCategorySelection("Music")} className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
+          <div className="flex items-center justify-center py-2 px-3 bg-[#c7e0e0]">
+            <button onClick={()=> handleCategorySelection("Music")} className=" bg-[#7D9D9C] text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
               See Classes
             </button>
           </div>
@@ -84,11 +84,11 @@ export default function Categories() {
           />
         </div>
         <div className="w-56 md:w-64 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden">
-          <div className="py-2 text-center font-bold uppercase tracking-wide text-gray-800">
+          <div className="py-2 text-center font-bold uppercase tracking-wide text-[#576F72]">
             Sports
           </div>
-          <div className="flex items-center justify-center py-2 px-3 bg-gray-400">
-            <button onClick={()=> handleCategorySelection("Sports")} className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
+          <div className="flex items-center justify-center py-2 px-3 bg-[#c7e0e0]">
+            <button onClick={()=> handleCategorySelection("Sports")} className=" bg-[#7D9D9C] text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
               See Classes
             </button>
           </div>
@@ -103,11 +103,11 @@ export default function Categories() {
           />
         </div>
         <div className="w-56 md:w-64 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden">
-          <div className="py-2 text-center font-bold uppercase tracking-wide text-gray-800">
+          <div className="py-2 text-center font-bold uppercase tracking-wide text-[#576F72]">
             Software Development
           </div>
-          <div className="flex items-center justify-center py-2 px-3 bg-gray-400">
-            <button onClick={()=> handleCategorySelection("Software Development")} className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
+          <div className="flex items-center justify-center py-2 px-3 bg-[#c7e0e0]">
+            <button onClick={()=> handleCategorySelection("Software Development")} className=" bg-[#7D9D9C] text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
               See Classes
             </button>
           </div>
@@ -121,11 +121,11 @@ export default function Categories() {
           />
         </div>
         <div className="w-56 md:w-64 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden">
-          <div className="py-2 text-center font-bold uppercase tracking-wide text-gray-800">
+          <div className="py-2 text-center font-bold uppercase tracking-wide text-[#576F72]">
             Languages
           </div>
-          <div className="flex items-center justify-center py-2 px-3 bg-gray-400">
-            <button onClick={()=> handleCategorySelection("Languages")} className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
+          <div className="flex items-center justify-center py-2 px-3 bg-[#c7e0e0]">
+            <button onClick={()=> handleCategorySelection("Languages")} className=" bg-[#7D9D9C] text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
               See Classes
             </button>
           </div>
@@ -139,11 +139,11 @@ export default function Categories() {
           />
         </div>
         <div className="w-56 md:w-64 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden">
-          <div className="py-2 text-center font-bold uppercase tracking-wide text-gray-800">
+          <div className="py-2 text-center font-bold uppercase tracking-wide text-[#576F72]">
             Cooking
           </div>
-          <div className="flex items-center justify-center py-2 px-3 bg-gray-400">
-            <button onClick={()=> handleCategorySelection("Cooking")} className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
+          <div className="flex items-center justify-center py-2 px-3 bg-[#c7e0e0]">
+            <button onClick={()=> handleCategorySelection("Cooking")} className=" bg-[#7D9D9C] text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
               See Classes
             </button>
           </div>
@@ -157,11 +157,11 @@ export default function Categories() {
           />
         </div>
         <div className="w-56 md:w-64 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden">
-          <div className="py-2 text-center font-bold uppercase tracking-wide text-gray-800">
+          <div className="py-2 text-center font-bold uppercase tracking-wide text-[#576F72]">
             Arts
           </div>
-          <div className="flex items-center justify-center py-2 px-3 bg-gray-400">
-            <button onClick={()=> handleCategorySelection("Arts")} className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
+          <div className="flex items-center justify-center py-2 px-3 bg-[#c7e0e0]">
+            <button onClick={()=> handleCategorySelection("Arts")} className=" bg-[#7D9D9C] text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
               See Classes
             </button>
           </div>
@@ -175,11 +175,11 @@ export default function Categories() {
           />
         </div>
         <div className="w-56 md:w-64 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden">
-          <div className="py-2 text-center font-bold uppercase tracking-wide text-gray-800">
+          <div className="py-2 text-center font-bold uppercase tracking-wide text-[#576F72]">
             Engineering
           </div>
-          <div className="flex items-center justify-center py-2 px-3 bg-gray-400">
-            <button onClick={()=> handleCategorySelection("Engineering")} className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
+          <div className="flex items-center justify-center py-2 px-3 bg-[#c7e0e0]">
+            <button onClick={()=> handleCategorySelection("Engineering")} className=" bg-[#7D9D9C] text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
               See Classes
             </button>
           </div>
@@ -193,11 +193,11 @@ export default function Categories() {
           />
         </div>
         <div className="w-56 md:w-64 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden">
-          <div className="py-2 text-center font-bold uppercase tracking-wide text-gray-800">
+          <div className="py-2 text-center font-bold uppercase tracking-wide text-[#576F72]">
           Social Studies
           </div>
-          <div className="flex items-center justify-center py-2 px-3 bg-gray-400">
-            <button onClick={()=> handleCategorySelection("Social Studies")} className=" bg-gray-800 text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
+          <div className="flex items-center justify-center py-2 px-3 bg-[#c7e0e0]">
+            <button onClick={()=> handleCategorySelection("Social Studies")} className=" bg-[#7D9D9C] text-xs text-white px-2 py-2 font-semibold rounded uppercase hover:bg-gray-700">
               See Classes
             </button>
           </div>

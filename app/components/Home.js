@@ -4,26 +4,26 @@ import { useEffect } from "react";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import cookieCutter from 'cookie-cutter';
+import cookieCutter from "cookie-cutter";
 
 
 export default function HomePage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
-    
+
     const jwt = cookieCutter.get('jwt');
 
     const loggedIn = localStorage.getItem("isLoggedIn");
-    if (jwt!=0) {
+    if (jwt != 0) {
       setIsLoggedIn(true);
     } else {
       setIsLoggedIn(false);
     }
-    
-    
+
+
   }, []);
- 
-  
+
+
   return (
     <div>
       <section className="relative  h-screen w-screen bg-[url(https://umanitoba.ca/extended-education/sites/extended-education/files/styles/21x9_1100w/public/2021-05/Courses-header_1.jpg?itok=DPBp7WmX)] bg-cover bg-center bg-no-repeat">
@@ -31,25 +31,21 @@ export default function HomePage() {
 
         <div className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
           <div className="max-w-xl text-center sm:text-left">
+            <br/>
             <h1 className="text-3xl font-extrabold sm:text-5xl">
-              Let us find you
+              Let us connect you
               <strong className="block font-extrabold text-black-700">
-                The best Courses
+                to the best courses
               </strong>
             </h1>
-
             <p className="mt-4 max-w-lg sm:text-xl sm:leading-relaxed">
-              In Classi you will be able to search for many courses in many
-              categories so you can find whatever course that fits your needs to
-              develop and improve your skills and knowledge at a specific
-              interest of yours
+              In Classi, you can search for various courses in many categories to choose whichever course best suits your needs to develop and improve your skills and knowledge in a certain area of interest.
             </p>
+            <br></br>
             <li>Choose the category of your interest</li>
             <li>Find the best class for you</li>
             <li>Add it to your subscription list and start learning</li>
             <li>Enjoy the journey</li>
-            <br></br>
-            <br></br>
             <br></br>
             {!isLoggedIn && <span className="ml-2 w-full rounded  px-20 py-3 text-sm font-medium text-black shadow sm:w-auto">
               {" "}
@@ -71,14 +67,22 @@ export default function HomePage() {
                 Log in
               </a>
             </div>}
-            <br>
-            </br>
-            <div>
-            <h3 className="block font-bold text-black-700">If You Are A Student You Can Search</h3>
-            <h3 className="block font-bold text-black-700">Using The Categories Page</h3>
-            
-            </div>
-            <div></div>
+            {isLoggedIn && <div className="mt-8 flex flex-wrap gap-4 text-center ">
+              <br>
+              </br>
+              <div>
+                <p className="sm:text-xl sm:leading-relaxed">Start learning now!</p>
+                <p>you can browse through our collection of class categories to find what you want!</p>
+                <br></br>
+                <Link href='/categories'>
+                <button
+                  class="text-white py-2 px-4 uppercase rounded bg-[#7D9D9C] hover:bg-[#576F72] shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
+                >
+                  Categories
+                </button>
+                </Link>
+              </div>
+              <div></div></div>}
           </div>
         </div>
       </section>
